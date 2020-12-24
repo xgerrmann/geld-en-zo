@@ -1,6 +1,6 @@
 {
-  "title": "Your Blog Name",
-  "url": "https://example.com/",
+  "title": "Geld en zo",
+  "url": "https://xgerrmann.github.io/geld-en-zo/",
   "description": "I am writing about my experiences as a naval navel-gazer.",
   "feed": {
     "subtitle": "I am writing about my experiences as a naval navel-gazer.",
@@ -13,8 +13,8 @@
     "url": "https://example.com/feed/feed.json"
   },
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com",
-    "url": "https://example.com/about-me/"
+    "name": "Xander Gerrmann",
+    "email": "xander@xgerrmann.com",
+    "url": "https://xgerrmann.github.io/geld-en-zo/"
   }
 }
