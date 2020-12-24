@@ -1,0 +1,167 @@
+<h2 id="topics">Topics <a class="direct-link" href="#topics">#</a></h2>
+<ul>
+<li>Inkomstenbelasting</li>
+<li>Heffingskortingen</li>
+<li>Bijzonder tarief (vakantiegeld en bonussen)</li>
+<li>Hypotheken
+<ul>
+<li>Vormen</li>
+<li>Combinaties</li>
+</ul>
+</li>
+<li>Jaarruimte en reserveringsruimte</li>
+<li>Vermogensbelasting
+<ul>
+<li>schijven</li>
+<li>groene beleggingen</li>
+<li>Vrijstelling voor beleggingen in pensieonrekening</li>
+</ul>
+</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li>som van belasting en kortingen mag niet negatief zijn (de kortingen worden niet uitbetaald)</li>
+<li>Effectieve heffingskorting kan ook in analyse worden berekend (tax vs gross income)</li>
+</ul>
+<p>Berekening belasting (en salaris)</p>
+<p>totaal = 108% (incl vakantietoeslag)</p>
+<p>Bereken maandelijks salaris</p>
+<p>bruto maandelijks = 100%/12</p>
+<p>TODO:</p>
+<ul>
+<li>[x] Finish simulation V1.</li>
+<li>Generate basic plots</li>
+<li>Write article</li>
+<li>[ ] Set up website
+<ul>
+<li>[ ] Set up in such a way that alows widgets / interactive stuff (e.g. plots)</li>
+<li>[ ] Javascript frontend, python backend listening to API requests</li>
+<li>[ ] Publish on Github pages</li>
+<li>[ ] Write content</li>
+<li>[ ] Create graphs</li>
+<li>[ ] Outsource making a video</li>
+</ul>
+</li>
+</ul>
+<p>Make sure clean setup is properly working from scratch</p>
+<ul>
+<li>Website only works nicely after a yarn dev
+<ul>
+<li>run with --entrypoint sleep ... 1000</li>
+<li>then exec -it into container</li>
+<li>then yarn dev</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://xgerrmann.github.io/">https://xgerrmann.github.io/</a></p>
+<p>Improvements:</p>
+<ul>
+<li>Add tests</li>
+<li>Properly implement holiday allowance</li>
+<li>Add bonus functionality</li>
+<li>Fix / enable mortgage</li>
+</ul>
+<p>Requirements</p>
+<ul>
+<li>Able to have interactive calculators (e.g. <a href="https://www.berekenhet.nl/werk-en-inkomen/bruto-netto-salaris.html">https://www.berekenhet.nl/werk-en-inkomen/bruto-netto-salaris.html</a>)</li>
+<li>Able to have blogposts</li>
+<li>'simulator' can be on a separate dedicated page (possibly in an iFrame)</li>
+<li>python web-app</li>
+</ul>
+<p>INclude web app (google app engine) in static website</p>
+<h2 id="belasting-berekeningen-optie-1">Belasting berekeningen optie 1 <a class="direct-link" href="#belasting-berekeningen-optie-1">#</a></h2>
+<h5 id="bereken-netto-maandelijks">Bereken netto maandelijks <a class="direct-link" href="#bereken-netto-maandelijks">#</a></h5>
+<ul>
+<li>DMV 100% bruto salaris, bereken het netto jaarsalaris</li>
+<li>deel dit door 12</li>
+</ul>
+<h5 id="bereken-netto-vakantietoeslag">Bereken netto vakantietoeslag <a class="direct-link" href="#bereken-netto-vakantietoeslag">#</a></h5>
+<ul>
+<li>Bruto vakantietoeslag = 100% * 8%</li>
+<li>Bereken nieuw <strong>netto</strong> jaarsalaris incl bruto vakantietoeslag (met heffingskortingen ed)</li>
+<li>Trek daar het <strong>netto</strong> jaarsalaris excl vakantietoeslag vanaf</li>
+<li>Dit verschil is de <strong>netto</strong> vakantietoeslag</li>
+<li>Hier kan ook berekend worden hoeveel % er uiteindelijk wordt betaald over de vakantietoeslag</li>
+</ul>
+<h1 id="belasting-berekeningen-optie-2">Belasting berekeningen optie 2 <a class="direct-link" href="#belasting-berekeningen-optie-2">#</a></h1>
+<ul>
+<li></li>
+</ul>
+<h1 id="belasting-berekeningen-optie-3">Belasting berekeningen optie 3 <a class="direct-link" href="#belasting-berekeningen-optie-3">#</a></h1>
+<p>trek alle aftrekposten van je bruto salaris af (resultaat is minder overzicht in de componenten)</p>
+<h1 id="aftrekbare-kosten---eigen-woning">Aftrekbare kosten - eigen woning <a class="direct-link" href="#aftrekbare-kosten---eigen-woning">#</a></h1>
+<p><a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/content/eigen-woning-aftrekbare-kosten">https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/content/eigen-woning-aftrekbare-kosten</a></p>
+<p>Periodieke betalingen voor erfpacht, opstal of beklemming zijn aftrekbaar.</p>
+<blockquote>
+<p>Als u de rechten van erfpacht, opstal of beklemming afkoopt, is de rente over de lening die u afsluit om de afkoopsom te financieren, meestal  wel aftrekbaar.</p>
+</blockquote>
+<p>En nog veel meer</p>
+<h5 id="onbelast-sparen-voor-aflossing-hypotheek">Onbelast sparen voor aflossing hypotheek <a class="direct-link" href="#onbelast-sparen-voor-aflossing-hypotheek">#</a></h5>
+<p><a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/woning/uw_hypotheek_of_lening/sparen_voor_de_aflossing_van_uw_hypotheek/sparen_voor_de_aflossing_van_uw_hypotheek">https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/woning/uw_hypotheek_of_lening/sparen_voor_de_aflossing_van_uw_hypotheek/sparen_voor_de_aflossing_van_uw_hypotheek</a></p>
+<p>U kunt banksparen met een ‘spaarrekening eigen woning’ of  ‘beleggingsrecht eigen woning’. U betaalt dan maandelijks of 1 keer per  jaar een bedrag waarmee u spaart of belegt voor de aflossing van uw  eigenwoningschuld.</p>
+<h5 id="jaar--en-reserveringsruimte">Jaar- en reserveringsruimte <a class="direct-link" href="#jaar--en-reserveringsruimte">#</a></h5>
+<p><a href="https://www.banksparen.nl/pensioen-lijfrente/informatie/reserveringsruimte.aspx">https://www.banksparen.nl/pensioen-lijfrente/informatie/reserveringsruimte.aspx</a></p>
+<blockquote>
+<p>Binnen de reserveringsruimte geldt wel een maximumbedrag per jaar.</p>
+</blockquote>
+<p><a href="https://www.belastingdienst.nl/bibliotheek/handboeken/html/boeken/FISIN2019/fiscale_informatie_2019-uitgaven_voor_inkomensvoorzieningen.html">https://www.belastingdienst.nl/bibliotheek/handboeken/html/boeken/FISIN2019/fiscale_informatie_2019-uitgaven_voor_inkomensvoorzieningen.html</a></p>
+<blockquote>
+<p>Jaarruimte 2019 hangt af van de situatie in 2018</p>
+</blockquote>
+<h6 id="maximale-reserveringsruimte">Maximale reserveringsruimte <a class="direct-link" href="#maximale-reserveringsruimte">#</a></h6>
+<p><a href="https://www.belastingdienst.nl/bibliotheek/handboeken/html/boeken/FISIN2019/fiscale_informatie_2019-uitgaven_voor_inkomensvoorzieningen.html">https://www.belastingdienst.nl/bibliotheek/handboeken/html/boeken/FISIN2019/fiscale_informatie_2019-uitgaven_voor_inkomensvoorzieningen.html</a></p>
+<blockquote>
+<p>De opgebouwde reserveringsruimte is in 2019 maximaal 17% van uw premiegrondslag in 2019. Bovendien geldt er een maximumbedrag                              dat afhangt van uw leeftijd:</p>
+<ul>
+<li>Bent u geboren na 31 augustus 1962? Dan kan uw reserveringsruimte in 2019 niet hoger zijn dan € 7.254.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>U mag alleen premies en stortingen aftrekken in het jaar waarin u deze hebt betaald.</p>
+</blockquote>
+<h3 id="bijzonder-tarief">Bijzonder tarief <a class="direct-link" href="#bijzonder-tarief">#</a></h3>
+<p><a href="https://meerbudget.nl/bijzonder-tarief/">https://meerbudget.nl/bijzonder-tarief/</a></p>
+<p>&quot;verrekeningspercentage loonheffingskorting&quot;</p>
+<p>Bijzondere tarief is een construct om de persoon die het salaris ontvangt niet achteraf veel belasting te hoeven laten betalen. Omdat de loonheffingskorting en de arbeidsheffingskorting afnemen met toenemend salaris is door het extra salaris er recht op minder van deze kortingen. Hierdoor moet wordt dit verschil met het extra salaris verrekend waardoor het 'lijkt' alsof het extra salaris extra belast wordt.</p>
+<p>Is berekening vakantiegeld correct? -&gt; Ja</p>
+<p>108% 8%</p>
+<h1 id="website-titels">Website titels <a class="direct-link" href="#website-titels">#</a></h1>
+<p>geld</p>
+<p>slim</p>
+<p>slimmer</p>
+<p>meer</p>
+<p>jong</p>
+<p>milennial</p>
+<p>verstandig</p>
+<p>rijk</p>
+<p>hypotheek</p>
+<p>belasting</p>
+<p>kapitaal</p>
+<p>vermogen</p>
+<p>groei</p>
+<p>leven</p>
+<p>beter</p>
+<p>kwaliteit</p>
+<p>handig</p>
+<p>trucs</p>
+<p>inzicht</p>
+<p>snel</p>
+<p>sneller</p>
+<p>beter</p>
+<p>rijker</p>
+<p>persoonlijk</p>
+<p>groei</p>
+<p>slimgeld</p>
+<p>minderbelasting</p>
+<p>belasting en jij</p>
+<p>belasting enzo</p>
+<p>geld enzo</p>
+<p>mindyourmoney</p>
+<h1 id="voorbeeldberekening-belasting">Voorbeeldberekening belasting <a class="direct-link" href="#voorbeeldberekening-belasting">#</a></h1>
+<p>Jaarsalaris (totaal, 108%): 55.002,24 (van salarisstrook)</p>
+<p>100%: 50.928</p>
+<p>Maand: 4.244 (klopt met salarisstrook)</p>
+<p>Vakantietoeslag: 4074.24</p>
+<p>Berekening netto:</p>
+<p>Belastingschijf:</p>
