@@ -2,23 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/posts/firstpost/</loc>
-    <lastmod>2018-05-01</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/posts/secondpost/</loc>
-    <lastmod>2018-07-04</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/posts/thirdpost/</loc>
-    <lastmod>2018-08-24</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/posts/fourthpost/</loc>
-    <lastmod>2018-09-30</lastmod>
+    <loc>https://xgerrmann.github.io/geld-en-zo/posts/2020-12-24_heffingskortingen/</loc>
+    <lastmod>2020-12-24</lastmod>
   </url>
   
   <url>
@@ -52,17 +37,12 @@
   </url>
   
   <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/tags/another-tag/</loc>
+    <loc>https://xgerrmann.github.io/geld-en-zo/tags/belasting/</loc>
     <lastmod>2020-12-24</lastmod>
   </url>
   
   <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/tags/second-tag/</loc>
-    <lastmod>2020-12-24</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xgerrmann.github.io/geld-en-zo/tags/number-2/</loc>
+    <loc>https://xgerrmann.github.io/geld-en-zo/tags/korting/</loc>
     <lastmod>2020-12-24</lastmod>
   </url>
 </urlset>
