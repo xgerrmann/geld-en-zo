@@ -36,15 +36,22 @@ bruto maandelijks = 100%/12
 TODO:
 
 * [x] Finish simulation V1.
+
 * Generate basic plots
+
 * Write article
+
 * [ ] Set up website
-  * [ ] Set up in such a way that alows widgets / interactive stuff (e.g. plots)
+  * [x] Set up in such a way that alows widgets / interactive stuff (e.g. plots)
   * [ ] Javascript frontend, python backend listening to API requests
-  * [ ] Publish on Github pages
+  * [x] Publish on Github pages
   * [ ] Write content
   * [ ] Create graphs
   * [ ] Outsource making a video
+  
+* [ ] Set up google app engine + Dash
+
+  https://www.phillipsj.net/posts/deploying-dash-to-google-app-engine/
 
 
 
