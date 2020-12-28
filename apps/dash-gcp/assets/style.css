@@ -1,0 +1,53 @@
+
+
+*{
+  font-family: "Helvetica", sans-serif;
+}
+
+.align_right {
+  text-align: right
+}
+
+.border_bottom{
+    border-bottom: 1px solid
+}
+
+th{
+    font-weight:bold
+}
+
+table{
+    margin-top: 2em;
+}
+
+td{
+    padding: 0.5em
+}
+
+input{
+    display: block;
+    margin: auto;
+    margin-top:1em
+}
+
+#numerical_data{
+    width: 20%
+}
+
+#slider{
+    margin-top: 3em;
+}
+
+/* REMOVE NUMBER INPUT ARROWS */
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* REMOVE NUMBER INPUT ARROWS */
