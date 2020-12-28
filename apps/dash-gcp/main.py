@@ -27,20 +27,22 @@ dash_app.layout = html.Div(children=[
 
     html.Div(
         [html.H1('Jaarlijks inkomen'),
-         dcc.Slider(
-             id='slider',
-             min=0,
-             max=100000,
-             step=1,
-             value=default_salary,
-             tooltip={'always_visible': True}
-         ),
-         dcc.Input(id="salary_input",
-                   type="number",
-                   value=default_salary,
-                   min=0,
-                   max=100000,
-                   placeholder=default_salary),
+         html.Div([
+             dcc.Slider(
+                 id='slider',
+                 min=0,
+                 max=100000,
+                 step=1,
+                 value=default_salary,
+                 tooltip={'always_visible': True}
+             ),
+             dcc.Input(id="salary_input",
+                       type="number",
+                       value=default_salary,
+                       min=0,
+                       max=100000,
+                       placeholder=default_salary)
+         ], id="input_div"),
          html.Div(id='output')],
         id="numerical_data"
     )
@@ -57,8 +59,6 @@ last_input_salary = default_salary
     Input(component_id='salary_input', component_property='value'),
 )
 def update_slider(salary):
-    if salary is None:
-        salary = 0
     return salary
 
 
@@ -79,8 +79,6 @@ def determine_taxable_income(salary, salary2):
     if salary is None:
         salary = 0
 
-    print(salary)
-    print(salary2)
     global last_salary, last_salary2, last_input_salary
     if last_salary != salary:
         input_salary = salary
@@ -93,7 +91,7 @@ def determine_taxable_income(salary, salary2):
 
     work_tax_credit = taxes.calc_work_tax_discount(input_salary)
     general_tax_credit = taxes.calc_general_tax_discount(input_salary)
-    taxable_income = input_salary - work_tax_credit - general_tax_credit
+    taxable_income = max(input_salary - work_tax_credit - general_tax_credit,0)
     return (
         html.Table(
             [
@@ -102,7 +100,7 @@ def determine_taxable_income(salary, salary2):
                               html.Th('Bedrag')])]
                 ),
                 html.Tbody([
-                    html.Tr(children=[html.Td('Arbeidsheffings korting'),
+                    html.Tr(children=[html.Td('Arbeidskorting'),
                                       html.Td(f'{work_tax_credit:.2f}  €', className="align_right")]),
                     html.Tr(children=[html.Td('Algemene heffingskortingkorting', className='border_bottom'),
                                       html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
