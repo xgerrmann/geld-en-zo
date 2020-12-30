@@ -7,7 +7,6 @@ templateClass: tmpl-post
 
 {{ content | safe }}
 
-<hr>
 <ul>
   {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
   {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
