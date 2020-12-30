@@ -1,7 +1,9 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import pandas as pd
 import pfinsim
+import plotly.graph_objects as go
 from dash.dependencies import Input, Output
 from pfinsim.taxes import Taxes
 
@@ -10,44 +12,82 @@ app = dash_app.server
 
 default_salary = 24000
 
-dash_app.layout = html.Div(children=[
 
-    dcc.Graph(
-        id='example-graph',
-        figure={
-            'data': [
-                {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montreal'},
-            ],
-            'layout': {
-                'title': 'Heffingskortingen'
-            }
-        }
-    ),
+def plot_tax_credits():
+    fig = go.Figure()
+    gross_incomes = range(0, 120000, 10)
+    column_names = ['work_tax_credit', 'general_tax_credit', 'total_credit']
+    df = pd.DataFrame(index=gross_incomes, columns=column_names)
+    for gross_income in gross_incomes:
+        work_discount = taxes.calc_work_tax_discount(gross_income)
+        general_discount = taxes.calc_general_tax_discount(gross_income)
+        total_discount = work_discount + general_discount
+        df.loc[gross_income] = (work_discount, general_discount, total_discount)
 
-    html.Div(
-        [html.H1('Jaarlijks inkomen'),
-         html.Div([
-             dcc.Slider(
-                 id='slider',
-                 min=0,
-                 max=100000,
-                 step=1,
-                 value=default_salary,
-                 tooltip={'always_visible': True}
-             ),
-             dcc.Input(id="salary_input",
-                       type="number",
-                       value=default_salary,
-                       min=0,
-                       max=100000,
-                       placeholder=default_salary)
-         ], id="input_div"),
-         html.Div(id='output')],
-        id="numerical_data"
-    )
+    df.index.name = 'gross'
+    df = df.reset_index()
 
-])
+    fig.add_trace(go.Scatter(
+        x=df.index,
+        y=df.work_tax_credit,
+        mode='lines',
+        name='Arbeidskorting'
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=df.index,
+        y=df.general_tax_credit,
+        mode='lines',
+        name='Algemene heffingskorting'
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=df.index,
+        y=df.total_credit,
+        mode='lines',
+        name='Totaal'
+    ))
+
+    fig.update_layout(legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    ))
+
+    return fig
+
+
+def create_layout():
+    dash_app.layout = html.Div(children=[
+
+        dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph'),
+
+        html.Div(
+            [html.H1('Bereken eigen situatie'),
+             html.Div([
+                 dcc.Slider(
+                     id='slider',
+                     min=0,
+                     max=100000,
+                     step=1,
+                     value=default_salary,
+                     tooltip={'always_visible': True}
+                 ),
+                 dcc.Input(id="salary_input",
+                           type="number",
+                           value=default_salary,
+                           min=0,
+                           max=100000,
+                           placeholder=default_salary)
+             ], id="input_div"),
+             html.Div(id='output')],
+            id="numerical_data"
+        ),
+
+    ])
+
 
 last_salary = default_salary
 last_salary2 = default_salary
@@ -91,7 +131,7 @@ def determine_taxable_income(salary, salary2):
 
     work_tax_credit = taxes.calc_work_tax_discount(input_salary)
     general_tax_credit = taxes.calc_general_tax_discount(input_salary)
-    taxable_income = max(input_salary - work_tax_credit - general_tax_credit,0)
+    taxable_income = max(input_salary - work_tax_credit - general_tax_credit, 0)
     return (
         html.Table(
             [
@@ -119,5 +159,6 @@ def init_taxes():
 
 if __name__ == '__main__':
     taxes = init_taxes()
+    create_layout()
     dash_app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False)
     # dash_app.run_server(debug=True)
