@@ -141,7 +141,7 @@ def determine_taxable_income(salary, salary2):
                 ),
                 html.Tbody([
                     html.Tr(children=[html.Td('Arbeidskorting'),
-                                      html.Td(f'{work_tax_credit:.2f}  €', className="align_right")]),
+                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
                     html.Tr(children=[html.Td('Algemene heffingskortingkorting', className='border_bottom'),
                                       html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
                     html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
