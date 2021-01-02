@@ -60,6 +60,7 @@ def plot_tax_credits():
 
 
 def create_layout():
+    global dash_app
     dash_app.layout = html.Div(children=[
 
         dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph'),
@@ -160,5 +161,5 @@ def init_taxes():
 if __name__ == '__main__':
     taxes = init_taxes()
     create_layout()
-    dash_app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False)
+    dash_app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False, port=8080)
     # dash_app.run_server(debug=True)

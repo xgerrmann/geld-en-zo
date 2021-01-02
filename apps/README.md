@@ -12,3 +12,11 @@ pipenv run pip freeze > requirements.txt
 gcloud app deploy
 ```
 
+
+
+View the app
+
+```
+gcloud app browse
+```
+
