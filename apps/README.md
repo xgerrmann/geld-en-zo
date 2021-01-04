@@ -3,7 +3,6 @@
 # Deployment
 
 
-
 ### tax_credit
 
 ```
@@ -20,3 +19,14 @@ View the app
 gcloud app browse
 ```
 
+# Local testing
+
+```
+cd tax_credit
+pipenv shell
+gunicorn -b 0.0.0.0:8080 main:server
+```
+
+# Dash google cloud web app example
+* https://datasciencecampus.github.io/deploy-dash-with-gcp/
+* https://github.com/datasciencecampus/deploy-dash-with-gcp/tree/master/simple-dash-app-engine-app

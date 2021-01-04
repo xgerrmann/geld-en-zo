@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 dash = "*"
-pandas = "*"
 pfinsim = "*"
+gunicorn = "*"
 
 [dev-packages]
 
