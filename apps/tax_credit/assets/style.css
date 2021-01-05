@@ -17,7 +17,14 @@ th{
 }
 
 table{
+    width: 100%;
     margin-top: 2em;
+    border-collapse: collapse;
+}
+
+.bottom_row{
+    font-size: large;
+    font-weight: bold;
 }
 
 td{
@@ -26,22 +33,14 @@ td{
 
 input{
     display: block;
-    width: 20%;
-    float:right
+    width: 100%;
+    /*float:right*/
 }
-/*
-#numerical_data{
-    width: 20%
-}*/
 
-#slider{
-    display:block;
+#input_form{
+    margin: 0 auto;
     width: 60%;
-    float: left
-}
-
-#input_div{
-    padding-top:2em
+    display:block;
 }
 
 /* REMOVE NUMBER INPUT ARROWS */

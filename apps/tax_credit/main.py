@@ -50,7 +50,9 @@ def plot_tax_credits():
         y=1.02,
         xanchor="right",
         x=1
-    ))
+    ), title="Heffingskortingen vs inkomen")
+    fig.update_yaxes(title="Hoogte korting [€]")
+    fig.update_xaxes(title="Inkomen [€]")
 
     return fig
 
@@ -66,19 +68,11 @@ app.config.suppress_callback_exceptions = True
 
 
 default_salary = 24000
-
-# def init_taxes():
 tax_settings = pfinsim.common.load_settings('settings.yml')['taxes']
-# return Taxes(tax_settings)
-
-
-# taxes = init_taxes()
 taxes = Taxes(tax_settings)
 
-last_salary = default_salary
-last_salary2 = default_salary
+input_salary = default_salary
 last_input_salary = default_salary
-
 
 app.layout = html.Div(children=[
 
@@ -87,60 +81,32 @@ app.layout = html.Div(children=[
     html.Div(
         [html.H1('Bereken eigen situatie'),
          html.Div([
-             # dcc.Slider(
-             #     id='slider',
-             #     min=0,
-             #     max=100000,
-             #     step=1,
-             #     value=default_salary,
-             #     tooltip={'always_visible': True}
-             # ),
              dcc.Input(id="salary_input",
                        type="number",
                        value=default_salary,
                        min=0,
-                       max=100000,
+                       max=10000000,
                        placeholder=default_salary)
          ], id="input_div"),
          html.Div(id='output')],
-        id="numerical_data"
+        id="input_form"
     ),
 
 ])
 
 
-# @dash_app.callback(
-#     Output(component_id='slider', component_property='value'),
-#     Input(component_id='salary_input', component_property='value'),
-# )
-# def update_slider(salary):
-#     return salary
-
-
-# @dash_app.callback(
-#     Output(component_id='salary_input', component_property='value'),
-#     Input(component_id='slider', component_property='value'),
-# )
-# def update_input_field(salary):
-#     return salary
-
-
 @app.callback(
     Output(component_id='output', component_property='children'),
     Input(component_id='salary_input', component_property='value'),
-    # Input(component_id='slider', component_property='value')
 )
 def determine_taxable_income(salary):
     global taxes
     if salary is None:
         salary = 0
 
-    global last_salary, last_input_salary
-    if last_salary != salary:
+    global input_salary
+    if input_salary != salary:
         input_salary = salary
-        last_salary = salary
-    else:
-        input_salary = last_input_salary
 
     work_tax_credit = taxes.calc_work_tax_discount(input_salary)
     general_tax_credit = taxes.calc_general_tax_discount(input_salary)
@@ -153,26 +119,23 @@ def determine_taxable_income(salary):
                               html.Th('Bedrag')])]
                 ),
                 html.Tbody([
+                    html.Tr(children=[html.Td('Inkomsten uit loon'),
+                                      html.Td(f'{input_salary:.2f} €', className="align_right")]),
                     html.Tr(children=[html.Td('Arbeidskorting'),
-                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
+                                      html.Td(f'- {work_tax_credit:.2f} €', className="align_right")]),
                     html.Tr(children=[html.Td('Algemene heffingskortingkorting', className='border_bottom'),
-                                      html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                                      html.Td(f'- {general_tax_credit:.2f} €', className="align_right border_bottom")]),
                     html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
-                                      html.Td(f'{taxable_income:.2f} €', className="align_right")])
+                                      html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")])
                 ])
             ]
         )
     )
 
-    # def init_taxes():
-    #     tax_settings = pfinsim.common.load_settings('settings.yml')['taxes']
-    #     return Taxes(tax_settings)
-
 
 # --------------------------------- PYTHON FUNCTIONS ----------------------------- #
 
 if __name__ == '__main__':
-    # create_layout()
     app.run_server(host='0.0.0.0',
                    port=8080,
                    debug=False,
