@@ -45,12 +45,14 @@ def plot_tax_credits():
     ))
 
     fig.update_layout(legend=dict(
-        orientation="h",
-        yanchor="bottom",
-        y=1.02,
+        orientation="v",
+        yanchor="top",
+        y=-0.2,
         xanchor="right",
-        x=1
-    ), title="Heffingskortingen vs inkomen")
+        x=1,
+        bgcolor='rgba(0,0,0,0)'
+    ), title="Heffingskortingen vs inkomen",
+        margin=dict(l=0, r=0, t=30, b=0))
     fig.update_yaxes(title="Hoogte korting [€]")
     fig.update_xaxes(title="Inkomen [€]")
 

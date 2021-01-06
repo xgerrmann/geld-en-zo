@@ -28,7 +28,11 @@ table{
 }
 
 td{
-    padding: 0.5em
+    padding: 0.5em;
+}
+
+td:first-child {
+    width: 33% ;
 }
 
 input{
