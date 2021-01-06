@@ -39,5 +39,5 @@ Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldconten
 
 ## Heffingskortingen applet
 
-<iframe width="100%" height='1000pt' scrolling='no' src='https://dark-yen-262607.ew.r.appspot.com' style="border:0px"></iframe>
+<iframe width="100%" height='1000pt' scrolling='no' src='http://personal-finance-app-300718.ew.r.appspot.com/' style="border:0px"></iframe>
 
