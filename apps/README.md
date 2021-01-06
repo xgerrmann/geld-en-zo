@@ -24,7 +24,7 @@ gcloud app browse
 ```
 cd tax_credit
 pipenv shell
-gunicorn -b 0.0.0.0:8080 main:server
+gunicorn -b 0.0.0.0:8080 main:server --reload
 ```
 
 # Dash google cloud web app example
