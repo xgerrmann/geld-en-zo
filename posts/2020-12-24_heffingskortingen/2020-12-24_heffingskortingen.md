@@ -20,7 +20,7 @@ Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van j
 * $$K$$ is de som van alle heffingskortingen
 * $$I_b$$ is jouw belastbare inkomen
 
-Het verschil tussen jouw belastbare- en verzamelinkomen is onbelast, waardoor je door de heffingskortingen minder belasting betaald en dus meer geld overhoudt.
+Het verschil tussen jouw belastbare- en verzamelinkomen is onbelast, waardoor je door de heffingskortingen minder belasting betaalt en dus meer geld overhoudt.
 
 ## Welke heffingskortingen zijn er?
 
