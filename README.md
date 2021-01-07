@@ -50,9 +50,23 @@ http://localhost:8080
 
 
 
-### About the JAM stack
+##### About the JAM stack
 
 https://snipcart.com/blog/jamstack
+
+##### Latex for Eleventy
+
+https://benborgers.com/posts/eleventy-katex/
+
+
+
+
+
+### Run locally
+
+```
+yarn serve
+```
 
 
 

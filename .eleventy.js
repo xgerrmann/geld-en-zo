@@ -5,6 +5,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const katex = require('katex')
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -36,6 +37,16 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers);
   });
+
+  eleventyConfig.addFilter('latex', content => {
+    return content.replace(/\$\$(.+?)\$\$/g, (_, equation) => {
+      const cleanEquation = equation
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+  
+      return katex.renderToString(cleanEquation, { throwOnError: false })
+    })
+  })
 
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();
