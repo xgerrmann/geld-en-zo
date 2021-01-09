@@ -53,7 +53,7 @@ def plot_tax_credits():
         bgcolor='rgba(0,0,0,0)'
     ), plot_bgcolor='rgba(0,0,0,0)',
         title={
-        'text': "Heffingskortingen versus inkomen",
+        'text': "Heffingskortingen vs inkomen",
         'y': 0.99,
         'x': 0.5,
         'xanchor': 'center',

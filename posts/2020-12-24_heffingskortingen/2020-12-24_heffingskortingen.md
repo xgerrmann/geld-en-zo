@@ -8,7 +8,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-Let op, minder belasting! Wil jij weten hoe korting op je belasting werkt, of op hoeveel belastingskorting jij recht hebt?  Dan zit je hier goed. In dit artikel zal ik beknopt uitleggen hoe heffingskortingen werken. Daarnaast vindt je aan het einde van dit artikel een handige tool om jouw eigen persoonlijke heffingskorting te bepalen.
+Let op, minder belasting! Wil jij weten hoe korting op je belasting werkt, of op hoeveel belastingskorting jij recht hebt?  Dan zit je hier goed. In dit artikel zal ik beknopt uitleggen hoe heffingskortingen werken. Daarnaast vindt je aan het einde van dit artikel een handige [**tool**](#interactieve-heffingskortingentool) om jouw eigen persoonlijke heffingskorting te bepalen.
 
 ## Hoe werken heffingskortingen?
 
@@ -34,6 +34,14 @@ Hieronder staan alle heffingskortingen. Daarvan zal ik alleen de dikgedrukte ite
 - Levensloopverlofkorting
 - Heffingskorting voor groene beleggingen
 
+### Algemene heffingskorting
+
+Ben jij het gehele jaar jonger dan de AOW-leeftijd en heb jij dit jaar in Nederland gewoond? Dan heb je recht op de algemene heffingskorting. De hoogt hangt af van jouw inkomen en hoe lang je dit jaar in Nederland gewoond hebt. De [**tool**](#interactieve-heffingskortingentool) aan het einde van dit artikel gaat ervan uit dat je het gehele jaar in Nederland gewoond hebt.
+
+### Arbeidskorting
+
+Iedereen die werkt heeft recht op de arbeidskorting. De hoogte hangt af van zowel je leeftijd als je [arbeidsinkomen](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/inkomen_uit_werk). In dit artikel ga ik ervan uit de je de AOW leeftijd nog niet behaald hebt. Deze heffingskorting neemt af naarmate je inkomen stijgt. 
+
 ### Overige heffingskortingen
 
 Mocht een van de onderstaande punten voor jou gelden, dan heb je mogelijk recht op een van de overige heffingskortingen:
@@ -48,29 +56,7 @@ Mocht een van de onderstaande punten voor jou gelden, dan heb je mogelijk recht 
 
 Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021)
 
-
-
-## Algemene heffingskorting
-
-Ben jij het gehele jaar jonger dan de AOW-leeftijd en heb jij dit jaar in Nederland gewoond? Dan heb je recht op de algemene heffingskorting. De hoogt hangt af van jouw inkomen en hoe lang je dit jaar in Nederland gewoond hebt. De tool aan het einde van dit artikel gaat ervan uit dat je het gehele jaar in Nederland gewoond hebt.
-
-![general_tax_discount](general_tax_discount.png)
-
-## Arbeidskorting
-
-![working_tax_discount](working_tax_discount.png)
-
-
-
-
-
-
-
-## Heffingskorting voor groene beleggingen
-
-
-
-## Heffingskortingen applet
+## Interactieve heffingskortingentool
 
 <iframe width="100%" height='1100pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/' style="border:0px"></iframe>
 
