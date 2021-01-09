@@ -73,7 +73,7 @@ def plot_tax_credits():
             'linecolor': '#BCCCDC',
             'showgrid': False,
             'fixedrange': True,
-            'range': [0, 7000]
+            'range': [0, 4000]
         },
         font=dict(
             size=16,
