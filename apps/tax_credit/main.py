@@ -96,7 +96,7 @@ app.config.suppress_callback_exceptions = True
 
 
 default_salary = 24000
-tax_settings = pfinsim.common.load_settings()['taxes'][2020]
+tax_settings = pfinsim.common.load_settings()['taxes'][2021]
 taxes = Taxes(tax_settings)
 
 input_salary = default_salary
