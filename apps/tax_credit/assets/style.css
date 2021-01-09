@@ -38,6 +38,8 @@ td:first-child {
 input{
     display: block;
     width: 100%;
+    text-align: center;
+    font-size: large;
     /*float:right*/
 }
 

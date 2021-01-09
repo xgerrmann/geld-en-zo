@@ -51,8 +51,34 @@ def plot_tax_credits():
         xanchor="right",
         x=1,
         bgcolor='rgba(0,0,0,0)'
-    ), title="Heffingskortingen vs inkomen",
-        margin=dict(l=0, r=0, t=30, b=0))
+    ), plot_bgcolor='rgba(0,0,0,0)',
+        title={
+        'text': "Heffingskortingen versus inkomen",
+        'y': 0.99,
+        'x': 0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'},
+        margin=dict(l=0, r=0, t=30, b=0),
+        xaxis={
+            'linecolor': '#BCCCDC',
+            'showgrid': False,
+            'fixedrange': True,
+            'showspikes': True,
+            'spikethickness': 2,
+            'spikedash': "dot",
+            'spikecolor': "#999999",
+            'spikemode': "across"
+        },
+        yaxis={
+            'linecolor': '#BCCCDC',
+            'showgrid': False,
+            'fixedrange': True,
+            'range': [0, 7000]
+        },
+        font=dict(
+            size=16,
+        )
+    )
     fig.update_yaxes(title="Hoogte korting [€]")
     fig.update_xaxes(title="Inkomen [€]")
 
@@ -78,7 +104,8 @@ last_input_salary = default_salary
 
 app.layout = html.Div(children=[
 
-    dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph'),
+    dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph',
+              config={'displayModeBar': False}),
 
     html.Div(
         [html.H1('Bereken eigen situatie'),
@@ -113,20 +140,23 @@ def determine_taxable_income(salary):
     work_tax_credit = taxes.calc_work_tax_discount(input_salary)
     general_tax_credit = taxes.calc_general_tax_discount(input_salary)
     taxable_income = max(input_salary - work_tax_credit - general_tax_credit, 0)
+    total_tax_credit = work_tax_credit + general_tax_credit
     return (
         html.Table(
             [
-                html.Thead(
-                    [html.Tr([html.Th('Component'),
-                              html.Th('Bedrag')])]
-                ),
                 html.Tbody([
+                    html.Tr(children=[html.Td('Arbeidskorting'),
+                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
+                                      html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen'),
+                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
                     html.Tr(children=[html.Td('Inkomsten uit loon'),
                                       html.Td(f'{input_salary:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td('Arbeidskorting'),
-                                      html.Td(f'- {work_tax_credit:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td('Algemene heffingskortingkorting', className='border_bottom'),
-                                      html.Td(f'- {general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
+                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
                     html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
                                       html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")])
                 ])
