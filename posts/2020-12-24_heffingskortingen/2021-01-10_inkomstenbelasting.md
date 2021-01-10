@@ -35,6 +35,7 @@ app voor berekenen eigen inkomstenbelasting
 ##### Inputs
 
 * [ ] Selecteer jaar
+  Evt optie om meerdere jaren toe te voegen en te vergelijken?
 * [ ] Invoer van salaris
 * [ ] Checkbox voor 
 
@@ -46,6 +47,7 @@ app voor berekenen eigen inkomstenbelasting
   * [x] Totale belasting naar toenemend inkomen (1e y-as)
   * [x] Procentuele belasting naar toenemend inkomen (2e y-as)
   * [ ] Speciaal tarief percentage naar toenemend inkomen
+  * [ ] Optionally show/hide details (via CSS so no new calculations have to be performed)
 * Tabel
   * Maandelijkse salaris
   * Belasting tarief

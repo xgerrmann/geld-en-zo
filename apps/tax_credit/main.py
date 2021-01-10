@@ -100,18 +100,16 @@ def plot_income_taxes(include_tax_credits=True):
             total_discount = work_discount + general_discount
             taxable_income -= total_discount
 
-        nett, tax = taxes.calc_income_tax(taxable_income)
+        total_income_tax, income_tax_buckets = taxes.calc_income_tax(taxable_income)
 
-        if include_tax_credits:
-            tax -= total_discount
-        tax_list.append(tax)
-        tax_list_perc.append(tax / (gross_income+1e-6) * 100)
+        tax_list.append(total_income_tax)
+        tax_list_perc.append(total_income_tax / (gross_income + 1e-6) * 100)
 
     fig.add_trace(go.Scatter(
         x=list(gross_incomes),
         y=tax_list,
         mode='lines',
-        name='Belastingdruk (€)',
+        name='Belasting (€)',
     ),
         secondary_y=False)
 
@@ -119,7 +117,7 @@ def plot_income_taxes(include_tax_credits=True):
         x=list(gross_incomes),
         y=tax_list_perc,
         mode='lines',
-        name='Belastingdruk (%)',
+        name='Belasting (%)',
     ),
         secondary_y=True)
 
@@ -148,12 +146,6 @@ def plot_income_taxes(include_tax_credits=True):
             'spikecolor': "#999999",
             'spikemode': "across"
         },
-        # yaxis={
-        #     'linecolor': '#BCCCDC',
-        #     'showgrid': False,
-        #     'fixedrange': True,
-        #     'range': [0, 60]
-        # },
         font=dict(
             size=16,
         )
@@ -166,7 +158,7 @@ def plot_income_taxes(include_tax_credits=True):
     fig.update_xaxes(title_text="Inkomen uit werk", ticksuffix="€")
 
     return dcc.Graph(figure=fig, id='income_taxes_graph',
-                         config={'displayModeBar': False})
+                     config={'displayModeBar': False})
 
 
 # --------------------------------- DASH ----------------------------- #
@@ -184,7 +176,6 @@ tax_settings = pfinsim.common.load_settings()['taxes'][2021]
 taxes = Taxes(tax_settings)
 
 input_salary = default_salary
-last_input_salary = default_salary
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -204,6 +195,7 @@ def tax_credit_app(pathname):
         html.Div(
             [html.H1('Bereken eigen situatie'),
              html.Div([
+                 html.Label(children=['Bruto inkomen'], className='input_label'),
                  dcc.Input(id="salary_input",
                            type="number",
                            value=default_salary,
@@ -227,7 +219,22 @@ def income_taxes_app(pathname):
             ],
             value=[True],
             id='include_tax_credit_checkbox'
-        )])
+        ),
+        html.Div(
+            [html.H1('Bereken eigen situatie'),
+             html.Div(children=[
+                 html.Label(children=['Bruto inkomen'], className='input_label'),
+                 dcc.Input(id="salary_input_2",
+                           type="number",
+                           value=default_salary,
+                           min=0,
+                           max=10000000,
+                           placeholder=default_salary)
+             ], className="input_div"),
+             html.Div(id='output_income_taxes_app')],
+            id="input_form"
+        ),
+    ])
 
 
 @app.callback(dash.dependencies.Output(component_id='test_output', component_property='children'),
@@ -269,6 +276,10 @@ def determine_taxable_income(salary):
     general_tax_credit = taxes.calc_general_tax_discount(input_salary)
     taxable_income = max(input_salary - work_tax_credit - general_tax_credit, 0)
     total_tax_credit = work_tax_credit + general_tax_credit
+
+    # tax_settings
+    # self.income_tax_brackets = tax_parameters['income_tax']['brackets']
+    # self.income_tax_rates = tax_parameters['income_tax']['rates']
     return (
         html.Table(
             [
@@ -287,6 +298,63 @@ def determine_taxable_income(salary):
                                       html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
                     html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
                                       html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")])
+                ])
+            ]
+        )
+    )
+
+
+@app.callback(
+    Output(component_id='output_income_taxes_app', component_property='children'),
+    Input(component_id='salary_input_2', component_property='value'),
+)
+def determine_nett_income(gross_income):
+    global taxes
+    gross_income = gross_income or 0
+
+    work_tax_credit = taxes.calc_work_tax_discount(gross_income)
+    general_tax_credit = taxes.calc_general_tax_discount(gross_income)
+    taxable_income = max(gross_income - work_tax_credit - general_tax_credit, 0)
+    total_tax_credit = work_tax_credit + general_tax_credit
+
+    total_income_tax, income_tax_buckets = taxes.calc_income_tax(taxable_income)
+
+    nett_income = gross_income - total_income_tax
+    return (
+        html.Table(
+            [
+                html.Tbody([
+                    html.Tr(children=[html.Td('Arbeidskorting'),
+                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
+                                      html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen'),
+                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td('Inkomsten uit loon'),
+                                      html.Td(f'{gross_income:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
+                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
+                                      html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    *[
+                        html.Tr(children=[html.Td(f'Belasting schijf {ii + 1} '),
+                                          html.Td(f'{income_tax_bucket:.2f} €', className="align_right")], className=f"{'border_bottom' if ii +1 == len(income_tax_buckets) else ''}")
+                        for ii, income_tax_bucket in enumerate(income_tax_buckets)],
+                    html.Tr(children=[html.Td('Totale inkomstenbelasting'),
+                                      html.Td(f'{total_income_tax:.2f} €', className="align_right bottom_row")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td('Bruto inkomen'),
+                                      html.Td(f'{gross_income:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Totale inkomstenbelasting'),
+                                      html.Td(f'{- total_income_tax:.2f} €', className="align_right")],
+                            className="border_bottom"),
+                    html.Tr(children=[html.Td('Netto salaris'),
+                                      html.Td(f'{nett_income:.2f} €', className="align_right bottom_row")]),
                 ])
             ]
         )

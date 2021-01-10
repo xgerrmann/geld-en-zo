@@ -35,18 +35,32 @@ td:first-child {
     width: 33% ;
 }
 
+.input_div{
+    width:100%;
+    align-items: center;
+    vertical-align: middle;
+    display: flex;
+}
+
 input{
-    display: block;
-    width: 100%;
+    width: 60%;
     text-align: center;
     font-size: large;
-    /*float:right*/
+    float:right;
+	display: inline-block;
+}
+
+.input_label{
+    font-size: large;
+    font-weight:bold;
+    width: 40%;
 }
 
 #input_form{
     margin: 0 auto;
-    width: 60%;
-    display:block;
+    width: 100%;
+    max-width: 600px;
+    display: block;
 }
 
 /* REMOVE NUMBER INPUT ARROWS */
