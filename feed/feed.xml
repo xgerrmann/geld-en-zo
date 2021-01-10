@@ -31,16 +31,22 @@
 &lt;li&gt;Heffingskortingen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Selecteer jaar&lt;/li&gt;
-&lt;li&gt;Invoer van salaris&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Output:&lt;/p&gt;
+&lt;h5 id=&quot;inputs&quot;&gt;Inputs &lt;a class=&quot;direct-link&quot; href=&quot;#inputs&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Selecteer jaar&lt;br&gt;
+Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
+&lt;li&gt;[ ] Invoer van salaris&lt;/li&gt;
+&lt;li&gt;[ ] Checkbox voor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;output%3A&quot;&gt;Output: &lt;a class=&quot;direct-link&quot; href=&quot;#output%3A&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;Figuur
 &lt;ul&gt;
-&lt;li&gt;Totale belasting naar toenemend inkomen (1e y-as)&lt;/li&gt;
-&lt;li&gt;Procentuele belasting naar toenemend inkomen (2e y-as)&lt;/li&gt;
-&lt;li&gt;Speciaal tarief percentage naar toenemend inkomen&lt;/li&gt;
+&lt;li&gt;[x] Totale belasting naar toenemend inkomen (1e y-as)&lt;/li&gt;
+&lt;li&gt;[x] Procentuele belasting naar toenemend inkomen (2e y-as)&lt;/li&gt;
+&lt;li&gt;[ ] Speciaal tarief percentage naar toenemend inkomen&lt;/li&gt;
+&lt;li&gt;[ ] Optionally show/hide details (via CSS so no new calculations have to be performed)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Tabel
@@ -51,6 +57,12 @@
 &lt;li&gt;Resulterend belasting percentage (bruto - netto) / bruto&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TODO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Improve multi-page app structure&lt;br&gt;
+&lt;a href=&quot;https://dash.plotly.com/urls&quot;&gt;https://dash.plotly.com/urls&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[ ]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;Hoe wordt de inkomstenbelasting berekend? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
