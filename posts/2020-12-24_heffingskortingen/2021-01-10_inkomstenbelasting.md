@@ -84,7 +84,7 @@ Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van j
 
 Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021)
 
-## Bereken  heffingskortingentool
+## Bruto-netto tool
 
-
+<iframe width="100%" height='1200pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
 
