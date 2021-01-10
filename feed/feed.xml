@@ -13,6 +13,66 @@
 	</author>
 	
 	<entry>
+		<title>Inkomstenbelasting</title>
+		<link href="https://xgerrmann.github.io/geld-en-zo/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/"/>
+		<updated>2020-12-24T00:00:00+00:00</updated>
+		<id>https://xgerrmann.github.io/geld-en-zo/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/</id>
+		<content type="html">&lt;p&gt;uitleg berekening&lt;/p&gt;
+&lt;p&gt;speciaal tarief&lt;/p&gt;
+&lt;p&gt;belasting 13e maand en vakantietoeslag&lt;/p&gt;
+&lt;p&gt;vakantietoeslag&lt;/p&gt;
+&lt;p&gt;heffingskortingen&lt;/p&gt;
+&lt;p&gt;belastingdruk naar toenemend inkomen&lt;/p&gt;
+&lt;p&gt;app voor berekenen eigen inkomstenbelasting&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Optional incorporation of
+&lt;ul&gt;
+&lt;li&gt;Holiday allowance (8%)&lt;/li&gt;
+&lt;li&gt;Heffingskortingen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Selecteer jaar&lt;/li&gt;
+&lt;li&gt;Invoer van salaris&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Figuur
+&lt;ul&gt;
+&lt;li&gt;Totale belasting naar toenemend inkomen (1e y-as)&lt;/li&gt;
+&lt;li&gt;Procentuele belasting naar toenemend inkomen (2e y-as)&lt;/li&gt;
+&lt;li&gt;Speciaal tarief percentage naar toenemend inkomen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tabel
+&lt;ul&gt;
+&lt;li&gt;Maandelijkse salaris&lt;/li&gt;
+&lt;li&gt;Belasting tarief&lt;/li&gt;
+&lt;li&gt;Netto inkomen&lt;/li&gt;
+&lt;li&gt;Resulterend belasting percentage (bruto - netto) / bruto&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;Hoe wordt de inkomstenbelasting berekend? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;$$I_v - K = I_b$$&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$$I_v$$ is je verzamelinkomen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$K$$ is de som van alle heffingskortingen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$$I_b$$ is jouw belastbare inkomen&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021&quot;&gt;Belastingdienst&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;bereken-heffingskortingentool&quot;&gt;Bereken  heffingskortingentool &lt;a class=&quot;direct-link&quot; href=&quot;#bereken-heffingskortingentool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+</content>
+	</entry>
+	
+	<entry>
 		<title>Heffingskortingen</title>
 		<link href="https://xgerrmann.github.io/geld-en-zo/posts/2020-12-24_heffingskortingen/"/>
 		<updated>2020-12-24T00:00:00+00:00</updated>
@@ -39,7 +99,7 @@
 &lt;li&gt;Heffingskorting voor groene beleggingen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;algemene-heffingskorting&quot;&gt;Algemene heffingskorting &lt;a class=&quot;direct-link&quot; href=&quot;#algemene-heffingskorting&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Ben jij het gehele jaar jonger dan de AOW-leeftijd en heb jij dit jaar in Nederland gewoond? Dan heb je recht op de algemene heffingskorting. De hoogt hangt af van jouw inkomen en hoe lang je dit jaar in Nederland gewoond hebt. De &lt;a href=&quot;#interactieve-heffingskortingentool&quot;&gt;&lt;strong&gt;tool&lt;/strong&gt;&lt;/a&gt; aan het einde van dit artikel gaat ervan uit dat je het gehele jaar in Nederland gewoond hebt.&lt;/p&gt;
+&lt;p&gt;Ben jij het gehele jaar jonger dan de AOW-leeftijd en heb jij dit jaar in Nederland gewoond? Dan heb je recht op de algemene heffingskorting. De hoogt hangt af van jouw inkomen en hoe lang je dit jaar in Nederland gewoond hebt. De &lt;a href=&quot;#interactieve-heffingskortingentool&quot;&gt;tool&lt;/a&gt; aan het einde van dit artikel gaat ervan uit dat je het gehele jaar in Nederland gewoond hebt.&lt;/p&gt;
 &lt;h3 id=&quot;arbeidskorting&quot;&gt;Arbeidskorting &lt;a class=&quot;direct-link&quot; href=&quot;#arbeidskorting&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Iedereen die werkt heeft recht op de arbeidskorting. De hoogte hangt af van zowel je leeftijd als je &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/arbeidskorting/inkomen_uit_werk&quot;&gt;arbeidsinkomen&lt;/a&gt;. In dit artikel ga ik ervan uit de je de AOW leeftijd nog niet behaald hebt. Deze heffingskorting neemt af naarmate je inkomen stijgt.&lt;/p&gt;
 &lt;h3 id=&quot;overige-heffingskortingen&quot;&gt;Overige heffingskortingen &lt;a class=&quot;direct-link&quot; href=&quot;#overige-heffingskortingen&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
@@ -63,7 +123,7 @@
 &lt;/ul&gt;
 &lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021&quot;&gt;Belastingdienst&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;interactieve-heffingskortingentool&quot;&gt;Interactieve heffingskortingentool &lt;a class=&quot;direct-link&quot; href=&quot;#interactieve-heffingskortingentool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;1100pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;1100pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/tax_credit&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;
 </content>
 	</entry>
 </feed>
