@@ -36,7 +36,7 @@ Hieronder staan alle heffingskortingen. Daarvan zal ik alleen de dikgedrukte ite
 
 ### Algemene heffingskorting
 
-Ben jij het gehele jaar jonger dan de AOW-leeftijd en heb jij dit jaar in Nederland gewoond? Dan heb je recht op de algemene heffingskorting. De hoogt hangt af van jouw inkomen en hoe lang je dit jaar in Nederland gewoond hebt. De [**tool**](#interactieve-heffingskortingentool) aan het einde van dit artikel gaat ervan uit dat je het gehele jaar in Nederland gewoond hebt.
+Ben jij het gehele jaar jonger dan de AOW-leeftijd en heb jij dit jaar in Nederland gewoond? Dan heb je recht op de algemene heffingskorting. De hoogt hangt af van jouw inkomen en hoe lang je dit jaar in Nederland gewoond hebt. De [tool](#interactieve-heffingskortingentool) aan het einde van dit artikel gaat ervan uit dat je het gehele jaar in Nederland gewoond hebt.
 
 ### Arbeidskorting
 
@@ -58,5 +58,5 @@ Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldconten
 
 ## Interactieve heffingskortingentool
 
-<iframe width="100%" height='1100pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/' style="border:0px"></iframe>
+<iframe width="100%" height='1100pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/tax_credit' style="border:0px"></iframe>
 

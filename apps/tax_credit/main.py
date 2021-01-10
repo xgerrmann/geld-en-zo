@@ -53,11 +53,11 @@ def plot_tax_credits():
         bgcolor='rgba(0,0,0,0)'
     ), plot_bgcolor='rgba(0,0,0,0)',
         title={
-        'text': "Heffingskortingen vs inkomen",
-        'y': 0.99,
-        'x': 0.5,
-        'xanchor': 'center',
-        'yanchor': 'top'},
+            'text': "Heffingskortingen vs inkomen",
+            'y': 0.99,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'},
         margin=dict(l=0, r=0, t=30, b=0),
         xaxis={
             'linecolor': '#BCCCDC',
@@ -102,26 +102,58 @@ taxes = Taxes(tax_settings)
 input_salary = default_salary
 last_input_salary = default_salary
 
-app.layout = html.Div(children=[
-
-    dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph',
-              config={'displayModeBar': False}),
-
-    html.Div(
-        [html.H1('Bereken eigen situatie'),
-         html.Div([
-             dcc.Input(id="salary_input",
-                       type="number",
-                       value=default_salary,
-                       min=0,
-                       max=10000000,
-                       placeholder=default_salary)
-         ], id="input_div"),
-         html.Div(id='output')],
-        id="input_form"
-    ),
-
+app.layout = html.Div([
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content')
 ])
+
+
+def default_app(pathname):
+    return html.Div([
+        html.H3(f'The requested page ({pathname}) does not exist.')
+    ])
+
+
+def tax_credit_app(pathname):
+    return html.Div(children=[
+        dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph',
+                  config={'displayModeBar': False}),
+
+        html.Div(
+            [html.H1('Bereken eigen situatie'),
+             html.Div([
+                 dcc.Input(id="salary_input",
+                           type="number",
+                           value=default_salary,
+                           min=0,
+                           max=10000000,
+                           placeholder=default_salary)
+             ], id="input_div"),
+             html.Div(id='output')],
+            id="input_form"
+        ),
+
+    ])
+
+
+def income_taxes_app(pathname):
+    return html.Div([
+        html.H3(f'This page should still be made')
+    ])
+
+
+app_dict = {
+    '/tax_credit': tax_credit_app,
+    '/income_taxes': income_taxes_app
+}
+
+
+@app.callback(dash.dependencies.Output('page-content', 'children'),
+              [dash.dependencies.Input('url', 'pathname')])
+def display_page(pathname):
+    print(pathname)
+    page = app_dict.get(pathname, default_app)
+    return page(pathname)
 
 
 @app.callback(
