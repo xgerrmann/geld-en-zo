@@ -31,17 +31,21 @@ app voor berekenen eigen inkomstenbelasting
 * Optional incorporation of
   * Holiday allowance (8%)
   * Heffingskortingen
-* Selecteer jaar
-* Invoer van salaris
+
+##### Inputs
+
+* [ ] Selecteer jaar
+* [ ] Invoer van salaris
+* [ ] Checkbox voor 
 
 
 
-Output:
+##### Output:
 
 * Figuur
-  * Totale belasting naar toenemend inkomen (1e y-as)
-  * Procentuele belasting naar toenemend inkomen (2e y-as)
-  * Speciaal tarief percentage naar toenemend inkomen
+  * [x] Totale belasting naar toenemend inkomen (1e y-as)
+  * [x] Procentuele belasting naar toenemend inkomen (2e y-as)
+  * [ ] Speciaal tarief percentage naar toenemend inkomen
 * Tabel
   * Maandelijkse salaris
   * Belasting tarief
@@ -51,6 +55,12 @@ Output:
 
 
 
+
+TODO:
+
+- [ ] Improve multi-page app structure
+  https://dash.plotly.com/urls
+- [ ] 
 
 
 
