@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - 12
-script: yarn install && eleventy --pathprefix="/geld-en-zo/"
+script: yarn install && eleventy
 deploy:
   local-dir: _site
   provider: pages
