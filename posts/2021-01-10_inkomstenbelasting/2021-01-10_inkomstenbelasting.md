@@ -1,7 +1,7 @@
 ---
 title: Inkomstenbelasting
 description: Hoe wordt de totale belasting op jouw inkomen berekend?
-date: 2020-12-24
+date: 2021-01-10
 tags:
   - belasting
   - salaris
@@ -11,6 +11,8 @@ layout: layouts/post.njk
 ---
 
 
+
+Heffingskortingen worden toegelicht in [deze post](/posts/2020-12-24_heffingskortingen/).
 
 uitleg berekening
 
@@ -62,7 +64,9 @@ TODO:
 
 - [ ] Improve multi-page app structure
   https://dash.plotly.com/urls
-- [ ] 
+- [ ] Add selection of year(s)
+- [ ] Improve style of checkbox (+label)
+- [ ] Hide/show advanced details
 
 
 
@@ -86,5 +90,6 @@ Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldconten
 
 ## Bruto-netto tool
 
-<iframe width="100%" height='1200pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
+<iframe width="100%" height='1400pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
 
+rm _si	

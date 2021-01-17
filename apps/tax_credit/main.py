@@ -277,9 +277,6 @@ def determine_taxable_income(salary):
     taxable_income = max(input_salary - work_tax_credit - general_tax_credit, 0)
     total_tax_credit = work_tax_credit + general_tax_credit
 
-    # tax_settings
-    # self.income_tax_brackets = tax_parameters['income_tax']['brackets']
-    # self.income_tax_rates = tax_parameters['income_tax']['rates']
     return (
         html.Table(
             [
@@ -320,6 +317,11 @@ def determine_nett_income(gross_income):
     total_income_tax, income_tax_buckets = taxes.calc_income_tax(taxable_income)
 
     nett_income = gross_income - total_income_tax
+
+    # tax_settings
+    tax_settings = pfinsim.common.load_settings()['taxes'][2021]
+    # self.income_tax_brackets = tax_settings['income_tax']['brackets']
+    income_tax_rates = [rate*100 for rate in tax_settings['income_tax']['rates']]
     return (
         html.Table(
             [
@@ -341,7 +343,7 @@ def determine_nett_income(gross_income):
                     html.Tr(children=[html.Td(),
                                       html.Td(' ', className="align_right")]),
                     *[
-                        html.Tr(children=[html.Td(f'Belasting schijf {ii + 1} '),
+                        html.Tr(children=[html.Td(f'Belasting schijf {ii + 1} ({income_tax_rates[ii]}%) '),
                                           html.Td(f'{income_tax_bucket:.2f} €', className="align_right")], className=f"{'border_bottom' if ii +1 == len(income_tax_buckets) else ''}")
                         for ii, income_tax_bucket in enumerate(income_tax_buckets)],
                     html.Tr(children=[html.Td('Totale inkomstenbelasting'),
