@@ -3,7 +3,7 @@
 	<title>Geld en zo</title>
 	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
 	
-	<link href="https://www.geld-en-zo.nl/feed/feed.xml" rel="self"/>
+	<link href="https://www.geld-en-zo.nl/geld-en-zo/feed/feed.xml" rel="self"/>
 	<link href="https://www.geld-en-zo.nl"/>
 	<updated>2020-12-24T00:00:00+00:00</updated>
 	<id>https://example.com/</id>
@@ -14,9 +14,9 @@
 	
 	<entry>
 		<title>Inkomstenbelasting</title>
-		<link href="https://www.geld-en-zo.nl/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/"/>
+		<link href="https://www.geld-en-zo.nl/geld-en-zo/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/"/>
 		<updated>2020-12-24T00:00:00+00:00</updated>
-		<id>https://www.geld-en-zo.nl/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/</id>
+		<id>https://www.geld-en-zo.nl/geld-en-zo/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/</id>
 		<content type="html">&lt;p&gt;uitleg berekening&lt;/p&gt;
 &lt;p&gt;speciaal tarief&lt;/p&gt;
 &lt;p&gt;belasting 13e maand en vakantietoeslag&lt;/p&gt;
@@ -87,9 +87,9 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
 	
 	<entry>
 		<title>Heffingskortingen</title>
-		<link href="https://www.geld-en-zo.nl/posts/2020-12-24_heffingskortingen/"/>
+		<link href="https://www.geld-en-zo.nl/geld-en-zo/posts/2020-12-24_heffingskortingen/"/>
 		<updated>2020-12-24T00:00:00+00:00</updated>
-		<id>https://www.geld-en-zo.nl/posts/2020-12-24_heffingskortingen/</id>
+		<id>https://www.geld-en-zo.nl/geld-en-zo/posts/2020-12-24_heffingskortingen/</id>
 		<content type="html">&lt;p&gt;Let op, minder belasting! Wil jij weten hoe korting op je belasting werkt, of op hoeveel belastingskorting jij recht hebt?  Dan zit je hier goed. In dit artikel zal ik beknopt uitleggen hoe heffingskortingen werken. Daarnaast vindt je aan het einde van dit artikel een handige &lt;a href=&quot;#interactieve-heffingskortingentool&quot;&gt;&lt;strong&gt;tool&lt;/strong&gt;&lt;/a&gt; om jouw eigen persoonlijke heffingskorting te bepalen.&lt;/p&gt;
 &lt;h2 id=&quot;hoe-werken-heffingskortingen%3F&quot;&gt;Hoe werken heffingskortingen? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-werken-heffingskortingen%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
