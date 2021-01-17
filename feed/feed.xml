@@ -5,7 +5,7 @@
 	
 	<link href="https://xgerrmann.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://xgerrmann.github.io/geld-en-zo/"/>
-	<updated>2020-12-24T00:00:00+00:00</updated>
+	<updated>2021-01-10T00:00:00+00:00</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Xander Gerrmann</name>
@@ -14,10 +14,11 @@
 	
 	<entry>
 		<title>Inkomstenbelasting</title>
-		<link href="https://xgerrmann.github.io/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/"/>
-		<updated>2020-12-24T00:00:00+00:00</updated>
-		<id>https://xgerrmann.github.io/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/</id>
-		<content type="html">&lt;p&gt;uitleg berekening&lt;/p&gt;
+		<link href="https://xgerrmann.github.io/posts/2021-01-10_inkomstenbelasting/"/>
+		<updated>2021-01-10T00:00:00+00:00</updated>
+		<id>https://xgerrmann.github.io/posts/2021-01-10_inkomstenbelasting/</id>
+		<content type="html">&lt;p&gt;Heffingskortingen worden toegelicht in &lt;a href=&quot;https://xgerrmann.github.io/posts/2020-12-24_heffingskortingen/&quot;&gt;deze post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;uitleg berekening&lt;/p&gt;
 &lt;p&gt;speciaal tarief&lt;/p&gt;
 &lt;p&gt;belasting 13e maand en vakantietoeslag&lt;/p&gt;
 &lt;p&gt;vakantietoeslag&lt;/p&gt;
@@ -62,7 +63,9 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;[ ] Improve multi-page app structure&lt;br&gt;
 &lt;a href=&quot;https://dash.plotly.com/urls&quot;&gt;https://dash.plotly.com/urls&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[ ]&lt;/li&gt;
+&lt;li&gt;[ ] Add selection of year(s)&lt;/li&gt;
+&lt;li&gt;[ ] Improve style of checkbox (+label)&lt;/li&gt;
+&lt;li&gt;[ ] Hide/show advanced details&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;Hoe wordt de inkomstenbelasting berekend? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
@@ -81,7 +84,8 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021&quot;&gt;Belastingdienst&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;bruto-netto-tool&quot;&gt;Bruto-netto tool &lt;a class=&quot;direct-link&quot; href=&quot;#bruto-netto-tool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;1200pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;1400pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;rm _si&lt;/p&gt;
 </content>
 	</entry>
 	
