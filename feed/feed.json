@@ -1,12 +1,12 @@
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "Geld en zo",
-  "home_page_url": "https://www.geld-en-zo.nl",
+  "home_page_url": "https://www.geld-en-zo.nl/geld-en-zo",
   "feed_url": "https://example.com/feed/feed.json",
   "description": "I am writing about my experiences as a naval navel-gazer.",
   "author": {
     "name": "Xander Gerrmann",
-    "url": "https://www.geld-en-zo.nl"
+    "url": "https://www.geld-en-zo.nl/geld-en-zo"
   },
   "items": [{
       "id": "https://www.geld-en-zo.nl/geld-en-zo/posts/2020-12-24_heffingskortingen/2021-01-10_inkomstenbelasting/",
