@@ -1,13 +1,16 @@
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
+from dash.dependencies import Input, Output
 from pfinsim.taxes import Taxes
 
 import pfinsim
-from common import default_salary
+from common import app, default_salary
 
 tax_settings = pfinsim.common.load_settings()['taxes'][2021]
 taxes = Taxes(tax_settings)
+
+input_salary = default_salary
 
 def plot_tax_credits():
   fig = go.Figure()
@@ -105,4 +108,45 @@ def tax_credit_app(pathname):
         ),
 
     ])
+
+@app.callback(
+    Output(component_id='output', component_property='children'),
+    Input(component_id='salary_input', component_property='value'),
+)
+def determine_taxable_income(salary):
+    global taxes
+    if salary is None:
+        salary = 0
+
+    global input_salary
+    if input_salary != salary:
+        input_salary = salary
+
+    work_tax_credit = taxes.calc_work_tax_discount(input_salary)
+    general_tax_credit = taxes.calc_general_tax_discount(input_salary)
+    taxable_income = max(input_salary - work_tax_credit - general_tax_credit, 0)
+    total_tax_credit = work_tax_credit + general_tax_credit
+
+    return (
+        html.Table(
+            [
+                html.Tbody([
+                    html.Tr(children=[html.Td('Arbeidskorting'),
+                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
+                                      html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen'),
+                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td('Inkomsten uit loon'),
+                                      html.Td(f'{input_salary:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
+                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
+                                      html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")])
+                ])
+            ]
+        )
+    )
 

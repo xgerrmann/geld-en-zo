@@ -1,11 +1,12 @@
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
+from dash.dependencies import Input, Output
 from pfinsim.taxes import Taxes
 from plotly.subplots import make_subplots
 
 import pfinsim
-from common import default_salary
+from common import app, default_salary
 
 tax_settings = pfinsim.common.load_settings()['taxes'][2021]
 taxes = Taxes(tax_settings)
@@ -37,6 +38,73 @@ def income_taxes_app(pathname):
         ),
     ])
 
+@app.callback(Output(component_id='test_output', component_property='children'),
+              [Input(component_id='include_tax_credit_checkbox', component_property='value')])
+def display_page(value):
+    if value and value[0] is True:
+        return plot_income_taxes()
+    return plot_income_taxes(include_tax_credits=False)
+
+@app.callback(
+    Output(component_id='output_income_taxes_app', component_property='children'),
+    Input(component_id='salary_input_2', component_property='value'),
+)
+def determine_nett_income(gross_income):
+    global taxes
+    gross_income = gross_income or 0
+
+    work_tax_credit = taxes.calc_work_tax_discount(gross_income)
+    general_tax_credit = taxes.calc_general_tax_discount(gross_income)
+    taxable_income = max(gross_income - work_tax_credit - general_tax_credit, 0)
+    total_tax_credit = work_tax_credit + general_tax_credit
+
+    total_income_tax, income_tax_buckets = taxes.calc_income_tax(taxable_income)
+
+    nett_income = gross_income - total_income_tax
+
+    # tax_settings
+    tax_settings = pfinsim.common.load_settings()['taxes'][2021]
+    # self.income_tax_brackets = tax_settings['income_tax']['brackets']
+    income_tax_rates = [rate*100 for rate in tax_settings['income_tax']['rates']]
+    return (
+        html.Table(
+            [
+                html.Tbody([
+                    html.Tr(children=[html.Td('Arbeidskorting'),
+                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
+                                      html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen'),
+                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td('Inkomsten uit loon'),
+                                      html.Td(f'{gross_income:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
+                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
+                                      html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    *[
+                        html.Tr(children=[html.Td(f'Belasting schijf {ii + 1} ({income_tax_rates[ii]}%) '),
+                                          html.Td(f'{income_tax_bucket:.2f} €', className="align_right")], className=f"{'border_bottom' if ii +1 == len(income_tax_buckets) else ''}")
+                        for ii, income_tax_bucket in enumerate(income_tax_buckets)],
+                    html.Tr(children=[html.Td('Totale inkomstenbelasting'),
+                                      html.Td(f'{total_income_tax:.2f} €', className="align_right bottom_row")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td('Bruto inkomen'),
+                                      html.Td(f'{gross_income:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Totale inkomstenbelasting'),
+                                      html.Td(f'{- total_income_tax:.2f} €', className="align_right")],
+                            className="border_bottom"),
+                    html.Tr(children=[html.Td('Netto salaris'),
+                                      html.Td(f'{nett_income:.2f} €', className="align_right bottom_row")]),
+                ])
+            ]
+        )
+    )
 
 def plot_income_taxes(include_tax_credits=True):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
