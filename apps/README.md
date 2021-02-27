@@ -19,7 +19,26 @@ View the app
 gcloud app browse
 ```
 
+
+
+# First time setting up
+
+```
+cd tax_credit
+pipenv shell
+pipenv install
+```
+
+Then in your browser go to one off
+
+* `localhost:8080/tax_credit`
+* `localhost:8080/income_taxes`
+
+
+
 # Local testing
+
+If this is the first time trying to run the apps locally, perform the steps described in 'first time setting up' (above)
 
 ```
 cd tax_credit
