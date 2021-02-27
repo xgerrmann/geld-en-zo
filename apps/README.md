@@ -2,11 +2,10 @@
 
 # Deployment
 
-
-### tax_credit
+If gloud has not been setup yet follow the 'install gcloud' instructions in this document.
 
 ```
-cd tax_credit
+cd src
 pipenv run pip freeze > requirements.txt
 gcloud app deploy
 ```
@@ -18,6 +17,18 @@ View the app
 ```
 gcloud app browse
 ```
+
+Dont forget to append the app path to the url, e.g.
+
+* ```
+  /tax_credit
+  ```
+
+* ```
+  /income_tax
+  ```
+
+  
 
 
 
@@ -66,3 +77,27 @@ gunicorn -b 0.0.0.0:8080 main:server --reload
 * Change **http://** to `https://`
 
 * Put it in an iframe
+
+
+
+# Installing gcloud
+
+* Follow these instructions:
+
+https://www.google.com/search?channel=fs&client=ubuntu&q=linux+install+gcloud
+
+* Open a NEW terminal window (since the .zshrc has changed)
+
+* Then perform authorization
+
+  ```
+  gcloud auth login
+  ```
+
+* Set the project (project ID can be found in the google console on cloud.google.com)
+
+  ```
+  gcloud config set project  personal-finance-app-300718
+  ```
+
+  
