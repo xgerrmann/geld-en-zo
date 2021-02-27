@@ -8,9 +8,11 @@ from plotly.subplots import make_subplots
 import pfinsim
 from common import app, default_salary
 
-tax_settings = pfinsim.common.load_settings()['taxes'][2021]
-taxes = Taxes(tax_settings)
+available_years = list(pfinsim.common.load_settings()['taxes'].keys())
+selected_year = available_years[0]
 
+tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
+taxes = Taxes(tax_settings)
 
 def income_taxes_app(pathname):
     return html.Div(children=[
@@ -21,6 +23,11 @@ def income_taxes_app(pathname):
             ],
             value=[True],
             id='include_tax_credit_checkbox'
+        ),
+        dcc.Dropdown(
+          id='year_selection',
+          options=[{'label': year, 'value': year} for year in available_years],
+          value=selected_year
         ),
         html.Div(
             [html.H1('Bereken eigen situatie'),
@@ -39,9 +46,15 @@ def income_taxes_app(pathname):
     ])
 
 @app.callback(Output(component_id='test_output', component_property='children'),
-              [Input(component_id='include_tax_credit_checkbox', component_property='value')])
-def display_page(value):
-    if value and value[0] is True:
+              [Input(component_id='include_tax_credit_checkbox', component_property='value'),
+               Input(component_id='year_selection', component_property='value')])
+def display_page(include_tax_credit, _selected_year):
+    global taxes
+    global selected_year
+    selected_year = _selected_year
+    taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
+
+    if include_tax_credit and include_tax_credit[0] == True:
         return plot_income_taxes()
     return plot_income_taxes(include_tax_credits=False)
 
@@ -63,7 +76,7 @@ def determine_nett_income(gross_income):
     nett_income = gross_income - total_income_tax
 
     # tax_settings
-    tax_settings = pfinsim.common.load_settings()['taxes'][2021]
+    tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
     # self.income_tax_brackets = tax_settings['income_tax']['brackets']
     income_tax_rates = [rate*100 for rate in tax_settings['income_tax']['rates']]
     return (
