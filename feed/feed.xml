@@ -22,8 +22,6 @@
 &lt;p&gt;speciaal tarief&lt;/p&gt;
 &lt;p&gt;belasting 13e maand en vakantietoeslag&lt;/p&gt;
 &lt;p&gt;vakantietoeslag&lt;/p&gt;
-&lt;p&gt;heffingskortingen&lt;/p&gt;
-&lt;p&gt;belastingdruk naar toenemend inkomen&lt;/p&gt;
 &lt;p&gt;app voor berekenen eigen inkomstenbelasting&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Optional incorporation of
@@ -32,13 +30,6 @@
 &lt;li&gt;Heffingskortingen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;inputs&quot;&gt;Inputs &lt;a class=&quot;direct-link&quot; href=&quot;#inputs&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;[ ] Selecteer jaar&lt;br&gt;
-Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
-&lt;li&gt;[ ] Invoer van salaris&lt;/li&gt;
-&lt;li&gt;[ ] Checkbox voor&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h5 id=&quot;output%3A&quot;&gt;Output: &lt;a class=&quot;direct-link&quot; href=&quot;#output%3A&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
 &lt;ul&gt;
@@ -61,11 +52,14 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;TODO:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;[ ] Improve multi-page app structure&lt;br&gt;
+&lt;li&gt;[x] Improve multi-page app structure&lt;br&gt;
 &lt;a href=&quot;https://dash.plotly.com/urls&quot;&gt;https://dash.plotly.com/urls&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[ ] Add selection of year(s)&lt;/li&gt;
+&lt;li&gt;[x] Add selection of year(s)&lt;/li&gt;
 &lt;li&gt;[ ] Improve style of checkbox (+label)&lt;/li&gt;
 &lt;li&gt;[ ] Hide/show advanced details&lt;/li&gt;
+&lt;li&gt;[ ] Show speciaal / bijzonder tarief&lt;/li&gt;
+&lt;li&gt;[ ] Show tax brackets and rules&lt;/li&gt;
+&lt;li&gt;[ ] Kolom per jaar en kolom per maand&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;Hoe wordt de inkomstenbelasting berekend? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
@@ -83,9 +77,19 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021&quot;&gt;Belastingdienst&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;speciaal-tarief&quot;&gt;Speciaal tarief &lt;a class=&quot;direct-link&quot; href=&quot;#speciaal-tarief&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vakantiegeld&lt;/li&gt;
+&lt;li&gt;13$^\text{e}$ maand&lt;/li&gt;
+&lt;li&gt;Bonussen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak/altijd hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt alsof je er meer belasting over betaalt is dat de heffingskortinen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.&lt;/p&gt;
+&lt;h5 id=&quot;zo-bepaal-je-de-heffingskorting&quot;&gt;Zo bepaal je de heffingskorting &lt;a class=&quot;direct-link&quot; href=&quot;#zo-bepaal-je-de-heffingskorting&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;bruto maandsalaris = bruto jaar salaris / 108% / 12&lt;/p&gt;
+&lt;p&gt;In de grafiek hieronder zie je het verloop van het speciale tarief voor een gegeven salaris.&lt;/p&gt;
 &lt;h2 id=&quot;bruto-netto-tool&quot;&gt;Bruto-netto tool &lt;a class=&quot;direct-link&quot; href=&quot;#bruto-netto-tool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;iframe width=&quot;100%&quot; height=&quot;1400pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;rm _si&lt;/p&gt;
 </content>
 	</entry>
 	

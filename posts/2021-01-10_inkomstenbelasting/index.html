@@ -30,8 +30,6 @@
 <p>speciaal tarief</p>
 <p>belasting 13e maand en vakantietoeslag</p>
 <p>vakantietoeslag</p>
-<p>heffingskortingen</p>
-<p>belastingdruk naar toenemend inkomen</p>
 <p>app voor berekenen eigen inkomstenbelasting</p>
 <ul>
 <li>Optional incorporation of
@@ -40,13 +38,6 @@
 <li>Heffingskortingen</li>
 </ul>
 </li>
-</ul>
-<h5 id="inputs">Inputs <a class="direct-link" href="#inputs">#</a></h5>
-<ul>
-<li>[ ] Selecteer jaar<br>
-Evt optie om meerdere jaren toe te voegen en te vergelijken?</li>
-<li>[ ] Invoer van salaris</li>
-<li>[ ] Checkbox voor</li>
 </ul>
 <h5 id="output%3A">Output: <a class="direct-link" href="#output%3A">#</a></h5>
 <ul>
@@ -69,11 +60,14 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?</li>
 </ul>
 <p>TODO:</p>
 <ul>
-<li>[ ] Improve multi-page app structure<br>
+<li>[x] Improve multi-page app structure<br>
 <a href="https://dash.plotly.com/urls">https://dash.plotly.com/urls</a></li>
-<li>[ ] Add selection of year(s)</li>
+<li>[x] Add selection of year(s)</li>
 <li>[ ] Improve style of checkbox (+label)</li>
 <li>[ ] Hide/show advanced details</li>
+<li>[ ] Show speciaal / bijzonder tarief</li>
+<li>[ ] Show tax brackets and rules</li>
+<li>[ ] Kolom per jaar en kolom per maand</li>
 </ul>
 <h2 id="hoe-wordt-de-inkomstenbelasting-berekend%3F">Hoe wordt de inkomstenbelasting berekend? <a class="direct-link" href="#hoe-wordt-de-inkomstenbelasting-berekend%3F">#</a></h2>
 <p>Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.</p>
@@ -91,9 +85,19 @@ Evt optie om meerdere jaren toe te voegen en te vergelijken?</li>
 <li></li>
 </ul>
 <p>Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021">Belastingdienst</a></p>
+<h2 id="speciaal-tarief">Speciaal tarief <a class="direct-link" href="#speciaal-tarief">#</a></h2>
+<p>Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen:</p>
+<ul>
+<li>Vakantiegeld</li>
+<li>13$^\text{e}$ maand</li>
+<li>Bonussen</li>
+</ul>
+<p>Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak/altijd hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt alsof je er meer belasting over betaalt is dat de heffingskortinen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.</p>
+<h5 id="zo-bepaal-je-de-heffingskorting">Zo bepaal je de heffingskorting <a class="direct-link" href="#zo-bepaal-je-de-heffingskorting">#</a></h5>
+<p>bruto maandsalaris = bruto jaar salaris / 108% / 12</p>
+<p>In de grafiek hieronder zie je het verloop van het speciale tarief voor een gegeven salaris.</p>
 <h2 id="bruto-netto-tool">Bruto-netto tool <a class="direct-link" href="#bruto-netto-tool">#</a></h2>
 <iframe width="100%" height='1400pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
-<p>rm _si</p>
 
 
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="xgerrmann" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
