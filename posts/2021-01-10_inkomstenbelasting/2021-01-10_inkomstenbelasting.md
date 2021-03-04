@@ -22,10 +22,6 @@ belasting 13e maand en vakantietoeslag
 
 vakantietoeslag
 
-heffingskortingen
-
-belastingdruk naar toenemend inkomen
-
 
 
 app voor berekenen eigen inkomstenbelasting
@@ -33,13 +29,6 @@ app voor berekenen eigen inkomstenbelasting
 * Optional incorporation of
   * Holiday allowance (8%)
   * Heffingskortingen
-
-##### Inputs
-
-* [ ] Selecteer jaar
-  Evt optie om meerdere jaren toe te voegen en te vergelijken?
-* [ ] Invoer van salaris
-* [ ] Checkbox voor 
 
 
 
@@ -62,11 +51,14 @@ app voor berekenen eigen inkomstenbelasting
 
 TODO:
 
-- [ ] Improve multi-page app structure
+- [x] Improve multi-page app structure
   https://dash.plotly.com/urls
-- [ ] Add selection of year(s)
+- [x] Add selection of year(s)
 - [ ] Improve style of checkbox (+label)
 - [ ] Hide/show advanced details
+- [ ] Show speciaal / bijzonder tarief
+- [ ] Show tax brackets and rules
+- [ ] Kolom per jaar en kolom per maand
 
 
 
@@ -88,8 +80,34 @@ Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van j
 
 Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021)
 
+
+
+## Speciaal tarief
+
+Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen:
+
+* Vakantiegeld
+* 13$^\text{e}$ maand
+* Bonussen
+
+Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak/altijd hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt alsof je er meer belasting over betaalt is dat de heffingskortinen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.
+
+##### Zo bepaal je de heffingskorting
+
+bruto maandsalaris = bruto jaar salaris / 108% / 12
+
+
+
+
+
+
+
+In de grafiek hieronder zie je het verloop van het speciale tarief voor een gegeven salaris.
+
+
+
+
+
 ## Bruto-netto tool
 
 <iframe width="100%" height='1400pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
-
-rm _si	

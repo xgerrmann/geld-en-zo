@@ -9,6 +9,7 @@ import pfinsim
 from common import app, default_salary
 
 available_years = list(pfinsim.common.load_settings()['taxes'].keys())
+available_years.sort(reverse=True)
 selected_year = available_years[0]
 
 tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]

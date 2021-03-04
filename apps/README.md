@@ -35,7 +35,7 @@ Dont forget to append the app path to the url, e.g.
 # First time setting up
 
 ```
-cd tax_credit
+cd src
 pipenv shell
 pipenv install
 ```

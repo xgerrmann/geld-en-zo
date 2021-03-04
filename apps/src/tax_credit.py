@@ -7,7 +7,11 @@ from pfinsim.taxes import Taxes
 import pfinsim
 from common import app, default_salary
 
-tax_settings = pfinsim.common.load_settings()['taxes'][2021]
+available_years = list(pfinsim.common.load_settings()['taxes'].keys())
+available_years.sort(reverse=True)
+selected_year = available_years[0]
+
+tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
 taxes = Taxes(tax_settings)
 
 input_salary = default_salary
@@ -91,7 +95,11 @@ def tax_credit_app(pathname):
     return html.Div(children=[
         dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph',
                   config={'displayModeBar': False}),
-
+      dcc.Dropdown(
+        id='year_selection',
+        options=[{'label': year, 'value': year} for year in available_years],
+        value=selected_year
+      ),
         html.Div(
             [html.H1('Bereken eigen situatie'),
              html.Div([
@@ -111,10 +119,15 @@ def tax_credit_app(pathname):
 
 @app.callback(
     Output(component_id='output', component_property='children'),
-    Input(component_id='salary_input', component_property='value'),
+    [Input(component_id='salary_input', component_property='value'),
+     Input(component_id='year_selection', component_property='value')],
 )
-def determine_taxable_income(salary):
+def determine_taxable_income(salary, _selected_year):
     global taxes
+    global selected_year
+    selected_year = _selected_year
+    taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
+
     if salary is None:
         salary = 0
 
