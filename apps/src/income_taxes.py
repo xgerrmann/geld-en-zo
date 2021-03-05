@@ -61,13 +61,15 @@ def display_page(include_tax_credit, _selected_year):
 
 @app.callback(
     Output(component_id='output_income_taxes_app', component_property='children'),
-    Input(component_id='salary_input_2', component_property='value'),
-)
-def determine_nett_income(gross_income):
+    [Input(component_id='salary_input_2', component_property='value'),
+     Input(component_id='year_selection', component_property='value')])
+def determine_nett_income(gross_income, _selected_year):
     global taxes
     gross_income = gross_income or 0
+    taxes = Taxes(pfinsim.common.load_settings()['taxes'][_selected_year])
 
     work_tax_credit = taxes.calc_work_tax_discount(gross_income)
+    taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
     general_tax_credit = taxes.calc_general_tax_discount(gross_income)
     taxable_income = max(gross_income - work_tax_credit - general_tax_credit, 0)
     total_tax_credit = work_tax_credit + general_tax_credit
