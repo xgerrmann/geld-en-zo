@@ -7,16 +7,10 @@ from pfinsim.taxes import Taxes
 import pfinsim
 from common import app, default_salary
 
-available_years = list(pfinsim.common.load_settings()['taxes'].keys())
-available_years.sort(reverse=True)
-selected_year = available_years[0]
-
-tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
-taxes = Taxes(tax_settings)
 
 input_salary = default_salary
 
-def plot_tax_credits():
+def plot_tax_credits(taxes, selected_year):
   fig = go.Figure()
   gross_incomes = range(0, 120000, 10)
   discount_work = []
@@ -60,7 +54,7 @@ def plot_tax_credits():
     bgcolor='rgba(0,0,0,0)'
   ), plot_bgcolor='rgba(0,0,0,0)',
     title={
-      'text': "Heffingskortingen vs inkomen",
+      'text': f"Heffingskortingen vs inkomen {selected_year}",
       'y': 0.99,
       'x': 0.5,
       'xanchor': 'center',
@@ -92,8 +86,15 @@ def plot_tax_credits():
   return fig
 
 def tax_credit_app(pathname):
+    available_years = list(pfinsim.common.load_settings()['taxes'].keys())
+    available_years.sort(reverse=True)
+    selected_year = available_years[0]
+
+    tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
+    taxes = Taxes(tax_settings)
+
     return html.Div(children=[
-        dcc.Graph(figure=plot_tax_credits(), id='tax_credit_graph',
+        dcc.Graph(figure=plot_tax_credits(taxes, selected_year), id='tax_credit_graph',
                   config={'displayModeBar': False}),
       dcc.Dropdown(
         id='year_selection',
@@ -122,10 +123,7 @@ def tax_credit_app(pathname):
     [Input(component_id='salary_input', component_property='value'),
      Input(component_id='year_selection', component_property='value')],
 )
-def determine_taxable_income(salary, _selected_year):
-    global taxes
-    global selected_year
-    selected_year = _selected_year
+def determine_taxable_income(salary, selected_year):
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
     if salary is None:
