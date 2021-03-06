@@ -16,7 +16,7 @@ def income_taxes_app(pathname):
     tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
     taxes = Taxes(tax_settings)
     return html.Div(children=[
-        html.Div(children=[plot_income_taxes(taxes, selected_year)], id='test_output'),
+        html.Div(children=[plot_income_taxes(taxes, selected_year)], id='income_tax_plot_div'),
         dcc.Checklist(
             options=[
                 {'label': 'Inclusief heffingskortingen', 'value': True},
@@ -25,7 +25,7 @@ def income_taxes_app(pathname):
             id='include_tax_credit_checkbox'
         ),
         dcc.Dropdown(
-          id='year_selection',
+          id='income_taxes_year_selection',
           options=[{'label': year, 'value': year} for year in available_years],
           value=selected_year
         ),
@@ -33,7 +33,7 @@ def income_taxes_app(pathname):
             [html.H1('Bereken eigen situatie'),
              html.Div(children=[
                  html.Label(children=['Bruto inkomen'], className='input_label'),
-                 dcc.Input(id="salary_input_2",
+                 dcc.Input(id="income_taxes_salary_input",
                            type="number",
                            value=default_salary,
                            min=0,
@@ -45,10 +45,10 @@ def income_taxes_app(pathname):
         ),
     ])
 
-@app.callback(Output(component_id='test_output', component_property='children'),
+@app.callback(Output(component_id='income_tax_plot_div', component_property='children'),
               [Input(component_id='include_tax_credit_checkbox', component_property='value'),
-               Input(component_id='year_selection', component_property='value')])
-def display_page(include_tax_credit, selected_year):
+               Input(component_id='income_taxes_year_selection', component_property='value')])
+def update_income_tax_plot(include_tax_credit, selected_year):
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
     if include_tax_credit and include_tax_credit[0] == True:
@@ -57,8 +57,8 @@ def display_page(include_tax_credit, selected_year):
 
 @app.callback(
     Output(component_id='output_income_taxes_app', component_property='children'),
-    [Input(component_id='salary_input_2', component_property='value'),
-     Input(component_id='year_selection', component_property='value')])
+    [Input(component_id='income_taxes_salary_input', component_property='value'),
+     Input(component_id='income_taxes_year_selection', component_property='value')])
 def determine_nett_income(gross_income, selected_year):
     gross_income = gross_income or 0
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])

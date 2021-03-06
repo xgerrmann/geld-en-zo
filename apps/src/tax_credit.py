@@ -74,7 +74,7 @@ def plot_tax_credits(taxes, selected_year):
       'linecolor': '#BCCCDC',
       'showgrid': False,
       'fixedrange': True,
-      'range': [0, 4000]
+      'range': [0, 6500]
     },
     font=dict(
       size=16,
@@ -82,8 +82,8 @@ def plot_tax_credits(taxes, selected_year):
   )
   fig.update_yaxes(title="Hoogte korting [€]")
   fig.update_xaxes(title="Inkomen [€]")
-
-  return fig
+  return dcc.Graph(figure=fig, id='tax_credit_graph',
+            config={'displayModeBar': False})
 
 def tax_credit_app(pathname):
     available_years = list(pfinsim.common.load_settings()['taxes'].keys())
@@ -94,10 +94,9 @@ def tax_credit_app(pathname):
     taxes = Taxes(tax_settings)
 
     return html.Div(children=[
-        dcc.Graph(figure=plot_tax_credits(taxes, selected_year), id='tax_credit_graph',
-                  config={'displayModeBar': False}),
+      html.Div(children=[plot_tax_credits(taxes, selected_year)], id='tax_credit_plot_div'),
       dcc.Dropdown(
-        id='year_selection',
+        id='tax_credit_year_selection',
         options=[{'label': year, 'value': year} for year in available_years],
         value=selected_year
       ),
@@ -118,10 +117,16 @@ def tax_credit_app(pathname):
 
     ])
 
+@app.callback(Output(component_id='tax_credit_plot_div', component_property='children'),
+               Input(component_id='tax_credit_year_selection', component_property='value'))
+def update_tax_credit_plot(selected_year):
+    taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
+    return plot_tax_credits(taxes, selected_year)
+
 @app.callback(
     Output(component_id='output', component_property='children'),
     [Input(component_id='salary_input', component_property='value'),
-     Input(component_id='year_selection', component_property='value')],
+     Input(component_id='tax_credit_year_selection', component_property='value')],
 )
 def determine_taxable_income(salary, selected_year):
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
