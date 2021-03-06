@@ -8,16 +8,15 @@ from plotly.subplots import make_subplots
 import pfinsim
 from common import app, default_salary
 
-available_years = list(pfinsim.common.load_settings()['taxes'].keys())
-available_years.sort(reverse=True)
-selected_year = available_years[0]
-
-tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
-taxes = Taxes(tax_settings)
 
 def income_taxes_app(pathname):
+    available_years = list(pfinsim.common.load_settings()['taxes'].keys())
+    available_years.sort(reverse=True)
+    selected_year = available_years[0]
+    tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
+    taxes = Taxes(tax_settings)
     return html.Div(children=[
-        html.Div(children=[plot_income_taxes()], id='test_output'),
+        html.Div(children=[plot_income_taxes(taxes, selected_year)], id='test_output'),
         dcc.Checklist(
             options=[
                 {'label': 'Inclusief heffingskortingen', 'value': True},
@@ -49,24 +48,20 @@ def income_taxes_app(pathname):
 @app.callback(Output(component_id='test_output', component_property='children'),
               [Input(component_id='include_tax_credit_checkbox', component_property='value'),
                Input(component_id='year_selection', component_property='value')])
-def display_page(include_tax_credit, _selected_year):
-    global taxes
-    global selected_year
-    selected_year = _selected_year
+def display_page(include_tax_credit, selected_year):
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
     if include_tax_credit and include_tax_credit[0] == True:
-        return plot_income_taxes()
-    return plot_income_taxes(include_tax_credits=False)
+        return plot_income_taxes(taxes, selected_year)
+    return plot_income_taxes(taxes, selected_year, include_tax_credits=False)
 
 @app.callback(
     Output(component_id='output_income_taxes_app', component_property='children'),
     [Input(component_id='salary_input_2', component_property='value'),
      Input(component_id='year_selection', component_property='value')])
-def determine_nett_income(gross_income, _selected_year):
-    global taxes
+def determine_nett_income(gross_income, selected_year):
     gross_income = gross_income or 0
-    taxes = Taxes(pfinsim.common.load_settings()['taxes'][_selected_year])
+    taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
     work_tax_credit = taxes.calc_work_tax_discount(gross_income)
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
@@ -78,9 +73,7 @@ def determine_nett_income(gross_income, _selected_year):
 
     nett_income = gross_income - total_income_tax
 
-    # tax_settings
     tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
-    # self.income_tax_brackets = tax_settings['income_tax']['brackets']
     income_tax_rates = [rate*100 for rate in tax_settings['income_tax']['rates']]
     return (
         html.Table(
@@ -122,7 +115,7 @@ def determine_nett_income(gross_income, _selected_year):
         )
     )
 
-def plot_income_taxes(include_tax_credits=True):
+def plot_income_taxes(taxes, selected_year, include_tax_credits=True):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
     gross_incomes = range(0, 120000, 50)
@@ -166,7 +159,7 @@ def plot_income_taxes(include_tax_credits=True):
         bgcolor='rgba(0,0,0,0)'
     ), plot_bgcolor='rgba(0,0,0,0)',
         title={
-            'text': "Belasting vs inkomen",
+            'text': f"Belasting vs inkomen {selected_year}",
             'y': 0.99,
             'x': 0.5,
             'xanchor': 'center',
