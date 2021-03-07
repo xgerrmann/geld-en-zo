@@ -165,7 +165,7 @@ def determine_nett_income(gross_income, selected_year, toggle_value):
                     html.Tr(children=[html.Td(children=['Netto maandsalaris',html.Sup(children=["*"])]),
                                     html.Td(f'{(nett_income/12):.2f} €', className="align_right bottom_row")]),
                     html.Tr(children=[html.Td('Speciaal tarief'),
-                                      html.Td(f'{special_tarif:.4f}%', className="align_right")]) if selected_period == Period.MONTH else None,
+                                      html.Td(f'{(special_tarif*100):.2f}%', className="align_right")]) if selected_period == Period.MONTH else None,
                     html.Tr(children=[html.Td(),
                                       html.Td(' ', className="align_right")]),
                 ])
