@@ -76,6 +76,27 @@ input{
     width: 20%
 }
 
+#include_tax_credit_toggle{
+    width: 20%;
+}
+
+#output_income_tax_credit_toggle{
+    text-align: right;
+    float: right;
+    width: 40%
+}
+
+#income_taxes_year_selection{
+    width: 40%;
+    float: right;
+    text-align: center;
+}
+
+#income_taxes_year_selection_label{
+    width: 60%;
+    float: left;
+}
+
 .float_left{
     float: left;
 }
@@ -85,7 +106,7 @@ input{
 }
 
 
-#input_form{
+.input_form{
     margin: 0 auto;
     width: 100%;
     max-width: 600px;

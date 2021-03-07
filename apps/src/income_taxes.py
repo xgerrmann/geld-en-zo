@@ -20,21 +20,31 @@ def income_taxes_app(pathname):
     tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
     taxes = Taxes(tax_settings)
     return html.Div(children=[
-        html.Div(children=[plot_income_taxes(taxes, selected_year)], id='income_tax_plot_div'),
-        dcc.Checklist(
-            options=[
-                {'label': 'Inclusief heffingskortingen', 'value': True},
-            ],
-            value=[True],
-            id='include_tax_credit_checkbox'
-        ),
-        dcc.Dropdown(
-          id='income_taxes_year_selection',
-          options=[{'label': year, 'value': year} for year in available_years],
-          value=selected_year
-        ),
+      html.Div(children=[
+        html.Div(children=[
+            html.Label(children=['Jaar'], className='input_label', id='income_taxes_year_selection_label'),
+            dcc.Dropdown(
+              id='income_taxes_year_selection',
+              options=[{'label': year, 'value': year} for year in available_years],
+              value=selected_year,
+            )], className="input_div"
+          ),
+          html.Br(),
+          html.Div(children=[
+              html.Label(children=['Heffingskortingen'], className='input_label'),
+              daq.ToggleSwitch(
+                id='include_tax_credit_toggle',
+                value=True,
+                size=40,
+                className='float_left'
+              ),
+              html.Div(id='output_income_tax_credit_toggle', className='float_right')
+          ], className="input_div")],
+        className='input_form'),
+      html.Br(),
+      html.Div(children=[plot_income_taxes(taxes, selected_year)], id='income_tax_plot_div'),
         html.Div(
-            [html.H1('Bereken eigen situatie'),
+            [html.H1('Bereken netto inkomen'),
              html.Div(children=[
                  html.Label(children=['Bruto jaarinkomen'], className='input_label'),
                  dcc.Input(id="income_taxes_salary_input",
@@ -56,7 +66,7 @@ def income_taxes_app(pathname):
                html.Div(id='output_income_tax_period_toggle', className='float_right'),
              ], className="input_div"),
              html.Div(id='output_income_taxes_app', className='input_div')],
-            id="input_form"
+            className="input_form"
         ),
     ])
 
@@ -66,14 +76,19 @@ def update_income_tax_plot(toggle_value):
     period = period_toggle_to_period(toggle_value)
     return 'Jaarlijks' if period == Period.YEAR else 'Maandelijks'
 
+@app.callback(Output(component_id='output_income_tax_credit_toggle', component_property='children'),
+              Input(component_id='include_tax_credit_toggle', component_property='value'))
+def update_income_tax_plot(toggle_value):
+    return 'Wel meegenomen in grafiek' if toggle_value else 'Niet meegenomen in grafiek'
+
 
 @app.callback(Output(component_id='income_tax_plot_div', component_property='children'),
-              [Input(component_id='include_tax_credit_checkbox', component_property='value'),
+              [Input(component_id='include_tax_credit_toggle', component_property='value'),
                Input(component_id='income_taxes_year_selection', component_property='value')])
 def update_income_tax_plot(include_tax_credit, selected_year):
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
-    if include_tax_credit and include_tax_credit[0] == True:
+    if include_tax_credit:
         return plot_income_taxes(taxes, selected_year)
     return plot_income_taxes(taxes, selected_year, include_tax_credits=False)
 
@@ -166,7 +181,7 @@ def determine_nett_income(gross_income, selected_year, toggle_value):
 def plot_income_taxes(taxes, selected_year, include_tax_credits=True):
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
-    gross_incomes = range(0, 120000, 50)
+    gross_incomes = range(1, 120000, 50)
     tax_list = []
     tax_list_perc = []
     for gross_income in gross_incomes:
