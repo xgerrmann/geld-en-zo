@@ -5,7 +5,7 @@
 	
 	<link href="https://xgerrmann.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://xgerrmann.github.io/geld-en-zo/"/>
-	<updated>2021-01-10T00:00:00+00:00</updated>
+	<updated>2021-03-07T00:00:00+00:00</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Xander Gerrmann</name>
@@ -15,82 +15,64 @@
 	<entry>
 		<title>Inkomstenbelasting</title>
 		<link href="https://xgerrmann.github.io/posts/2021-01-10_inkomstenbelasting/"/>
-		<updated>2021-01-10T00:00:00+00:00</updated>
+		<updated>2021-03-07T00:00:00+00:00</updated>
 		<id>https://xgerrmann.github.io/posts/2021-01-10_inkomstenbelasting/</id>
-		<content type="html">&lt;p&gt;Heffingskortingen worden toegelicht in &lt;a href=&quot;https://xgerrmann.github.io/posts/2020-12-24_heffingskortingen/&quot;&gt;deze post&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;uitleg berekening&lt;/p&gt;
-&lt;p&gt;speciaal tarief&lt;/p&gt;
-&lt;p&gt;belasting 13e maand en vakantietoeslag&lt;/p&gt;
-&lt;p&gt;vakantietoeslag&lt;/p&gt;
-&lt;p&gt;app voor berekenen eigen inkomstenbelasting&lt;/p&gt;
+		<content type="html">&lt;p&gt;Wil jij inzicht in hoeveel belasting jij betaalt, hoe je je netto salaris aan de hand van je bruto salaris berekent, hoe vakantiebijslag en andere overige inkomsten worden belast of heb je andere vragen over inkomsten belasting? In deze post wordt dit allemaal behandeld. Ook vindt je aan het einde van deze post een [&lt;strong&gt;handige tool&lt;/strong&gt;](#bruto-netto tool)  waarmee je gemakkelijk een aantal van deze zaken kan berekenen waaronder je netto salaris.&lt;/p&gt;
+&lt;h2 id=&quot;inkomstenbelasting-in-nederland&quot;&gt;Inkomstenbelasting in Nederland &lt;a class=&quot;direct-link&quot; href=&quot;#inkomstenbelasting-in-nederland&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Inkomstenbelastingen in Nederland vallen in drie categorieën:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Optional incorporation of
-&lt;ul&gt;
-&lt;li&gt;Holiday allowance (8%)&lt;/li&gt;
-&lt;li&gt;Heffingskortingen&lt;/li&gt;
+&lt;li&gt;box 1: belastbaar inkomen uit werk en woning&lt;/li&gt;
+&lt;li&gt;box 2: belastbaar inkomen uit aanmerkelijk belang&lt;/li&gt;
+&lt;li&gt;box 3: belastbaar inkoment uit sparen en beleggen&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;output%3A&quot;&gt;Output: &lt;a class=&quot;direct-link&quot; href=&quot;#output%3A&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;In deze post richten we ons op box 1. Verder gaan we er in deze post van uit dat je de pensioenleeftijd nog niet hebt behaald.&lt;/p&gt;
+&lt;p&gt;De volgende inkomsten vallen in box 1:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Figuur
-&lt;ul&gt;
-&lt;li&gt;[x] Totale belasting naar toenemend inkomen (1e y-as)&lt;/li&gt;
-&lt;li&gt;[x] Procentuele belasting naar toenemend inkomen (2e y-as)&lt;/li&gt;
-&lt;li&gt;[ ] Speciaal tarief percentage naar toenemend inkomen&lt;/li&gt;
-&lt;li&gt;[ ] Optionally show/hide details (via CSS so no new calculations have to be performed)&lt;/li&gt;
+&lt;li&gt;winst uit onderneming&lt;/li&gt;
+&lt;li&gt;loon, uitkering of pensioen&lt;/li&gt;
+&lt;li&gt;fooien en andere inkomsten&lt;/li&gt;
+&lt;li&gt;buitenlandse inkomsten&lt;/li&gt;
+&lt;li&gt;inkomsten als freelancer, gastouder, artiest of beroepssporter&lt;/li&gt;
+&lt;li&gt;periodieke uitkeringen (zoals uitkeringen van een lijfrente of alimentatiebetalingen)&lt;/li&gt;
+&lt;li&gt;negatieve persoonsgebonden aftrek&lt;/li&gt;
+&lt;li&gt;terugontvangen premies voor lijfrenten en dergelijke&lt;/li&gt;
+&lt;li&gt;eigenwoningforfait&lt;/li&gt;
+&lt;li&gt;kapitaalverzekeringen eigen woning&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tabel
+&lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/&quot;&gt;Belastingdienst: belastbaar inkomen uit werk en woning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Inkomsten die &lt;strong&gt;niet&lt;/strong&gt; in box 1 vallen zijn onder andere&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Maandelijkse salaris&lt;/li&gt;
-&lt;li&gt;Belasting tarief&lt;/li&gt;
-&lt;li&gt;Netto inkomen&lt;/li&gt;
-&lt;li&gt;Resulterend belasting percentage (bruto - netto) / bruto&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;TODO:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] Improve multi-page app structure&lt;br&gt;
-&lt;a href=&quot;https://dash.plotly.com/urls&quot;&gt;https://dash.plotly.com/urls&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[x] Add selection of year(s)&lt;/li&gt;
-&lt;li&gt;[ ] Improve style of checkbox (+label)&lt;/li&gt;
-&lt;li&gt;[ ] Hide/show advanced details&lt;/li&gt;
-&lt;li&gt;[ ] Show speciaal / bijzonder tarief&lt;/li&gt;
-&lt;li&gt;[ ] Show tax brackets and rules&lt;/li&gt;
-&lt;li&gt;[ ] Kolom per jaar en kolom per maand&lt;/li&gt;
+&lt;li&gt;Inkomsten uit voordelen via een aanmerkelijk belang&lt;/li&gt;
+&lt;li&gt;Inkomsten uit sparen en beleggen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;Hoe wordt de inkomstenbelasting berekend? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
-&lt;div style=&quot;text-align:center&quot;&gt;$$I_v - K = I_b$$&lt;/div&gt;
+&lt;p&gt;Het Nederlandse belastingssysteem werkt aan de hand van schijven. De hoogte van de belasting is afhankelijk van hoeveel je verdient. Niet alleen neemt dit toe naarmate je meer verdient omdat de belasting percentueel is, de percentages nemen ook toe naarmate je meer verdient. Deze vorm van inkomstenbelasting heet &#39;progressieve inkomstenbelasting&#39;.&lt;/p&gt;
+&lt;p&gt;Hoe de schijven precies berekend worden kan je vinden op de website van de belastingdienst. Om het jou makkelijker te maken staat onderaan deze post een app waarmee je gemakkelijk de hoogte van jouw inkomstenbelasting kan bepalen aan de hand van jouw bruto salaris, hieruit volgt jouw netto salaris.&lt;/p&gt;
+&lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/&quot;&gt;Belastingdienst: overzicht tarieven en belastingschijven&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;hoe-wordt-je-netto-salaris-bepaald%3F&quot;&gt;Hoe wordt je netto salaris bepaald? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-je-netto-salaris-bepaald%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Om je netto inkomsten te bepalen dien je de inkomstenbelasting te verrekenen met de heffingskortingen. Uileg over de heffingskortingen kan je &lt;a href=&quot;https://xgerrmann.github.io/posts/2020-12-24_heffingskortingen/&quot;&gt;hier&lt;/a&gt; vinden. Jouw netto inkomsten kan je als volgt bepalen&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;$$I_n = I_v - B + K$$&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$$I_v$$ is je verzamelinkomen&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$$K$$ is de som van alle heffingskortingen&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$$I_b$$ is jouw belastbare inkomen&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;$$I_n$$ is je netto inkomen&lt;/li&gt;
+&lt;li&gt;$$I_v$$ is je verzamelinkomen, ofwel je totale bruto inkomen&lt;/li&gt;
+&lt;li&gt;$$K$$ is de som van alle heffingskortingen&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021&quot;&gt;Belastingdienst&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/hoe_werken_heffingskortingen&quot;&gt;Belastingdienst: hoe werken heffingskortingen?&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;speciaal-tarief&quot;&gt;Speciaal tarief &lt;a class=&quot;direct-link&quot; href=&quot;#speciaal-tarief&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen:&lt;/p&gt;
+&lt;p&gt;Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen (onder andere):&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Vakantiegeld&lt;/li&gt;
+&lt;li&gt;Vakantiebijslag&lt;/li&gt;
 &lt;li&gt;13$^\text{e}$ maand&lt;/li&gt;
 &lt;li&gt;Bonussen&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak/altijd hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt alsof je er meer belasting over betaalt is dat de heffingskortinen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.&lt;/p&gt;
-&lt;h5 id=&quot;zo-bepaal-je-de-heffingskorting&quot;&gt;Zo bepaal je de heffingskorting &lt;a class=&quot;direct-link&quot; href=&quot;#zo-bepaal-je-de-heffingskorting&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
-&lt;p&gt;bruto maandsalaris = bruto jaar salaris / 108% / 12&lt;/p&gt;
-&lt;p&gt;In de grafiek hieronder zie je het verloop van het speciale tarief voor een gegeven salaris.&lt;/p&gt;
+&lt;p&gt;Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt dat je er meer belasting over betaalt is dat de heffingskortingen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.&lt;/p&gt;
+&lt;p&gt;Het speciale tarief kan op meerdere manieren worden berekend (met hetzelfde resultaat). Hier zal het op een manier worden uitgelegd. Dit rekenvoorbeeld is gebaseerd op het jaar 2021.&lt;/p&gt;
+&lt;p&gt;Stel je verdient 54 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 54 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 50 duizend euro (100%).&lt;/p&gt;
+&lt;p&gt;In 2021 zou je effectief €16062.72 betalen aan belasting bij een salaris van 54 duizend en €14099.64 bij een salaris van 50 duizend. Deze bedragen zijn makkelijk te bepalen met de app hieronder.&lt;/p&gt;
+&lt;p&gt;Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  In dit geval is het speciale tarief:&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;$$\frac{(16062.72 - 14099.64)}{4000} * 100\% = 49,1\%$$&lt;\div&gt;
 &lt;h2 id=&quot;bruto-netto-tool&quot;&gt;Bruto-netto tool &lt;a class=&quot;direct-link&quot; href=&quot;#bruto-netto-tool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;1400pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;
-</content>
+&lt;iframe width=&quot;100%&quot; height=&quot;1400pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;&lt;/\div&gt;&lt;/div&gt;</content>
 	</entry>
 	
 	<entry>
@@ -100,14 +82,14 @@
 		<id>https://xgerrmann.github.io/posts/2020-12-24_heffingskortingen/</id>
 		<content type="html">&lt;p&gt;Let op, minder belasting! Wil jij weten hoe korting op je belasting werkt, of op hoeveel belastingskorting jij recht hebt?  Dan zit je hier goed. In dit artikel zal ik beknopt uitleggen hoe heffingskortingen werken. Daarnaast vindt je aan het einde van dit artikel een handige &lt;a href=&quot;#interactieve-heffingskortingentool&quot;&gt;&lt;strong&gt;tool&lt;/strong&gt;&lt;/a&gt; om jouw eigen persoonlijke heffingskorting te bepalen.&lt;/p&gt;
 &lt;h2 id=&quot;hoe-werken-heffingskortingen%3F&quot;&gt;Hoe werken heffingskortingen? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-werken-heffingskortingen%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.&lt;/p&gt;
-&lt;div style=&quot;text-align:center&quot;&gt;$$I_v - K = I_b$$&lt;/div&gt;
+&lt;p&gt;Heffingskortingen zijn kortingen op de belasting. De heffingskortingen worden van de inkomstenbelasting afgetrokken om zo tot je effectieve belasting te komen.&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;$$B_i - K = B_e$$&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;$$I_v$$ is je verzamelinkomen&lt;/li&gt;
+&lt;li&gt;$$B_i$$ is de hoogte van de inkomstenbelasting&lt;/li&gt;
 &lt;li&gt;$$K$$ is de som van alle heffingskortingen&lt;/li&gt;
-&lt;li&gt;$$I_b$$ is jouw belastbare inkomen&lt;/li&gt;
+&lt;li&gt;$$B_e$$ is de effectiefe belasting die je betaalt over je bruto inkomen&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Het verschil tussen jouw belastbare- en verzamelinkomen is onbelast, waardoor je door de heffingskortingen minder belasting betaalt en dus meer geld overhoudt.&lt;/p&gt;
+&lt;p&gt;De hoogte van de heffingskorting geeft direct aan hoeveel minder inkomstenbelasting je hoeft te betalen.&lt;/p&gt;
 &lt;h2 id=&quot;welke-heffingskortingen-zijn-er%3F&quot;&gt;Welke heffingskortingen zijn er? &lt;a class=&quot;direct-link&quot; href=&quot;#welke-heffingskortingen-zijn-er%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Hieronder staan alle heffingskortingen. Daarvan zal ik alleen de dikgedrukte items behandelen. Klik op de link om naar het desbetreffende item te gaan.&lt;/p&gt;
 &lt;ul&gt;

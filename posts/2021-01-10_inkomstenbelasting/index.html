@@ -25,80 +25,62 @@
       
 <h1>Inkomstenbelasting</h1>
 
-<p>Heffingskortingen worden toegelicht in <a href="/posts/2020-12-24_heffingskortingen/">deze post</a>.</p>
-<p>uitleg berekening</p>
-<p>speciaal tarief</p>
-<p>belasting 13e maand en vakantietoeslag</p>
-<p>vakantietoeslag</p>
-<p>app voor berekenen eigen inkomstenbelasting</p>
+<p>Wil jij inzicht in hoeveel belasting jij betaalt, hoe je je netto salaris aan de hand van je bruto salaris berekent, hoe vakantiebijslag en andere overige inkomsten worden belast of heb je andere vragen over inkomsten belasting? In deze post wordt dit allemaal behandeld. Ook vindt je aan het einde van deze post een [<strong>handige tool</strong>](#bruto-netto tool)  waarmee je gemakkelijk een aantal van deze zaken kan berekenen waaronder je netto salaris.</p>
+<h2 id="inkomstenbelasting-in-nederland">Inkomstenbelasting in Nederland <a class="direct-link" href="#inkomstenbelasting-in-nederland">#</a></h2>
+<p>Inkomstenbelastingen in Nederland vallen in drie categorieën:</p>
 <ul>
-<li>Optional incorporation of
-<ul>
-<li>Holiday allowance (8%)</li>
-<li>Heffingskortingen</li>
+<li>box 1: belastbaar inkomen uit werk en woning</li>
+<li>box 2: belastbaar inkomen uit aanmerkelijk belang</li>
+<li>box 3: belastbaar inkoment uit sparen en beleggen</li>
 </ul>
-</li>
-</ul>
-<h5 id="output%3A">Output: <a class="direct-link" href="#output%3A">#</a></h5>
+<p>In deze post richten we ons op box 1. Verder gaan we er in deze post van uit dat je de pensioenleeftijd nog niet hebt behaald.</p>
+<p>De volgende inkomsten vallen in box 1:</p>
 <ul>
-<li>Figuur
-<ul>
-<li>[x] Totale belasting naar toenemend inkomen (1e y-as)</li>
-<li>[x] Procentuele belasting naar toenemend inkomen (2e y-as)</li>
-<li>[ ] Speciaal tarief percentage naar toenemend inkomen</li>
-<li>[ ] Optionally show/hide details (via CSS so no new calculations have to be performed)</li>
+<li>winst uit onderneming</li>
+<li>loon, uitkering of pensioen</li>
+<li>fooien en andere inkomsten</li>
+<li>buitenlandse inkomsten</li>
+<li>inkomsten als freelancer, gastouder, artiest of beroepssporter</li>
+<li>periodieke uitkeringen (zoals uitkeringen van een lijfrente of alimentatiebetalingen)</li>
+<li>negatieve persoonsgebonden aftrek</li>
+<li>terugontvangen premies voor lijfrenten en dergelijke</li>
+<li>eigenwoningforfait</li>
+<li>kapitaalverzekeringen eigen woning</li>
 </ul>
-</li>
-<li>Tabel
+<p>Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/">Belastingdienst: belastbaar inkomen uit werk en woning</a></p>
+<p>Inkomsten die <strong>niet</strong> in box 1 vallen zijn onder andere</p>
 <ul>
-<li>Maandelijkse salaris</li>
-<li>Belasting tarief</li>
-<li>Netto inkomen</li>
-<li>Resulterend belasting percentage (bruto - netto) / bruto</li>
-</ul>
-</li>
-</ul>
-<p>TODO:</p>
-<ul>
-<li>[x] Improve multi-page app structure<br>
-<a href="https://dash.plotly.com/urls">https://dash.plotly.com/urls</a></li>
-<li>[x] Add selection of year(s)</li>
-<li>[ ] Improve style of checkbox (+label)</li>
-<li>[ ] Hide/show advanced details</li>
-<li>[ ] Show speciaal / bijzonder tarief</li>
-<li>[ ] Show tax brackets and rules</li>
-<li>[ ] Kolom per jaar en kolom per maand</li>
+<li>Inkomsten uit voordelen via een aanmerkelijk belang</li>
+<li>Inkomsten uit sparen en beleggen</li>
 </ul>
 <h2 id="hoe-wordt-de-inkomstenbelasting-berekend%3F">Hoe wordt de inkomstenbelasting berekend? <a class="direct-link" href="#hoe-wordt-de-inkomstenbelasting-berekend%3F">#</a></h2>
-<p>Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.</p>
-<div style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>v</mi></msub><mo>−</mo><mi>K</mi><mo>=</mo><msub><mi>I</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">I_v - K = I_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></div>
+<p>Het Nederlandse belastingssysteem werkt aan de hand van schijven. De hoogte van de belasting is afhankelijk van hoeveel je verdient. Niet alleen neemt dit toe naarmate je meer verdient omdat de belasting percentueel is, de percentages nemen ook toe naarmate je meer verdient. Deze vorm van inkomstenbelasting heet 'progressieve inkomstenbelasting'.</p>
+<p>Hoe de schijven precies berekend worden kan je vinden op de website van de belastingdienst. Om het jou makkelijker te maken staat onderaan deze post een app waarmee je gemakkelijk de hoogte van jouw inkomstenbelasting kan bepalen aan de hand van jouw bruto salaris, hieruit volgt jouw netto salaris.</p>
+<p>Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/">Belastingdienst: overzicht tarieven en belastingschijven</a></p>
+<h2 id="hoe-wordt-je-netto-salaris-bepaald%3F">Hoe wordt je netto salaris bepaald? <a class="direct-link" href="#hoe-wordt-je-netto-salaris-bepaald%3F">#</a></h2>
+<p>Om je netto inkomsten te bepalen dien je de inkomstenbelasting te verrekenen met de heffingskortingen. Uileg over de heffingskortingen kan je <a href="/posts/2020-12-24_heffingskortingen/">hier</a> vinden. Jouw netto inkomsten kan je als volgt bepalen</p>
+<div style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>n</mi></msub><mo>=</mo><msub><mi>I</mi><mi>v</mi></msub><mo>−</mo><mi>B</mi><mo>+</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">I_n = I_v - B + K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></div>
 <ul>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">I_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is je verzamelinkomen</p>
-</li>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> is de som van alle heffingskortingen</p>
-</li>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">I_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is jouw belastbare inkomen</p>
-</li>
-<li></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">I_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is je netto inkomen</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">I_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is je verzamelinkomen, ofwel je totale bruto inkomen</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span> is de som van alle heffingskortingen</li>
 </ul>
-<p>Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021">Belastingdienst</a></p>
+<p>Bron: <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/hoe_werken_heffingskortingen">Belastingdienst: hoe werken heffingskortingen?</a></p>
 <h2 id="speciaal-tarief">Speciaal tarief <a class="direct-link" href="#speciaal-tarief">#</a></h2>
-<p>Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen:</p>
+<p>Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen (onder andere):</p>
 <ul>
-<li>Vakantiegeld</li>
+<li>Vakantiebijslag</li>
 <li>13$^\text{e}$ maand</li>
 <li>Bonussen</li>
 </ul>
-<p>Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak/altijd hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt alsof je er meer belasting over betaalt is dat de heffingskortinen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.</p>
-<h5 id="zo-bepaal-je-de-heffingskorting">Zo bepaal je de heffingskorting <a class="direct-link" href="#zo-bepaal-je-de-heffingskorting">#</a></h5>
-<p>bruto maandsalaris = bruto jaar salaris / 108% / 12</p>
-<p>In de grafiek hieronder zie je het verloop van het speciale tarief voor een gegeven salaris.</p>
+<p>Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt dat je er meer belasting over betaalt is dat de heffingskortingen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.</p>
+<p>Het speciale tarief kan op meerdere manieren worden berekend (met hetzelfde resultaat). Hier zal het op een manier worden uitgelegd. Dit rekenvoorbeeld is gebaseerd op het jaar 2021.</p>
+<p>Stel je verdient 54 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 54 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 50 duizend euro (100%).</p>
+<p>In 2021 zou je effectief €16062.72 betalen aan belasting bij een salaris van 54 duizend en €14099.64 bij een salaris van 50 duizend. Deze bedragen zijn makkelijk te bepalen met de app hieronder.</p>
+<p>Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  In dit geval is het speciale tarief:</p>
+<div style="text-align:center"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mo stretchy="false">(</mo><mn>16062.72</mn><mo>−</mo><mn>14099.64</mn><mo stretchy="false">)</mo></mrow><mn>4000</mn></mfrac><mo>∗</mo><mn>100</mn><mi mathvariant="normal">%</mi><mo>=</mo><mn>49</mn><mo separator="true">,</mo><mn>1</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\frac{(16062.72 - 14099.64)}{4000} * 100\% = 49,1\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mord mtight">0</span><span class="mord mtight">0</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mord mtight">6</span><span class="mord mtight">0</span><span class="mord mtight">6</span><span class="mord mtight">2</span><span class="mord mtight">.</span><span class="mord mtight">7</span><span class="mord mtight">2</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mord mtight">4</span><span class="mord mtight">0</span><span class="mord mtight">9</span><span class="mord mtight">9</span><span class="mord mtight">.</span><span class="mord mtight">6</span><span class="mord mtight">4</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">%</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.94444em;vertical-align:-0.19444em;"></span><span class="mord">4</span><span class="mord">9</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">%</span></span></span></span><\div>
 <h2 id="bruto-netto-tool">Bruto-netto tool <a class="direct-link" href="#bruto-netto-tool">#</a></h2>
 <iframe width="100%" height='1400pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
-
 
 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="xgerrmann" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 <div id="disqus_thread"></div>
