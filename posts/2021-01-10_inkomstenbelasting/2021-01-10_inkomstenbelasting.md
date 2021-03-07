@@ -1,7 +1,7 @@
 ---
 title: Inkomstenbelasting
 description: Hoe wordt de totale belasting op jouw inkomen berekend?
-date: 2021-01-10
+date: 2021-03-07
 tags:
   - belasting
   - salaris
@@ -10,101 +10,77 @@ tags:
 layout: layouts/post.njk
 ---
 
+Wil jij inzicht in hoeveel belasting jij betaalt, hoe je je netto salaris aan de hand van je bruto salaris berekent, hoe vakantiebijslag en andere overige inkomsten worden belast of heb je andere vragen over inkomsten belasting? In deze post wordt dit allemaal behandeld. Ook vindt je aan het einde van deze post een [**handige tool**](#bruto-netto tool)  waarmee je gemakkelijk een aantal van deze zaken kan berekenen waaronder je netto salaris. 
 
+## Inkomstenbelasting in Nederland
 
-Heffingskortingen worden toegelicht in [deze post](/posts/2020-12-24_heffingskortingen/).
+Inkomstenbelastingen in Nederland vallen in drie categorieën:
 
-uitleg berekening
+* box 1: belastbaar inkomen uit werk en woning
+* box 2: belastbaar inkomen uit aanmerkelijk belang
+* box 3: belastbaar inkoment uit sparen en beleggen
 
-speciaal tarief 
+In deze post richten we ons op box 1. Verder gaan we er in deze post van uit dat je de pensioenleeftijd nog niet hebt behaald. 
 
-belasting 13e maand en vakantietoeslag
+De volgende inkomsten vallen in box 1:
 
-vakantietoeslag
+* winst uit onderneming
+* loon, uitkering of pensioen
+* fooien en andere inkomsten
+* buitenlandse inkomsten
+* inkomsten als freelancer, gastouder, artiest of beroepssporter
+* periodieke uitkeringen (zoals uitkeringen van een lijfrente of alimentatiebetalingen)
+* negatieve persoonsgebonden aftrek
+* terugontvangen premies voor lijfrenten en dergelijke
+* eigenwoningforfait
+* kapitaalverzekeringen eigen woning
 
+Bron: [Belastingdienst: belastbaar inkomen uit werk en woning](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/)
 
+Inkomsten die **niet** in box 1 vallen zijn onder andere
 
-app voor berekenen eigen inkomstenbelasting
-
-* Optional incorporation of
-  * Holiday allowance (8%)
-  * Heffingskortingen
-
-
-
-##### Output:
-
-* Figuur
-  * [x] Totale belasting naar toenemend inkomen (1e y-as)
-  * [x] Procentuele belasting naar toenemend inkomen (2e y-as)
-  * [ ] Speciaal tarief percentage naar toenemend inkomen
-  * [ ] Optionally show/hide details (via CSS so no new calculations have to be performed)
-* Tabel
-  * Maandelijkse salaris
-  * Belasting tarief
-  * Netto inkomen
-  * Resulterend belasting percentage (bruto - netto) / bruto
-
-
-
-
-
-TODO:
-
-- [x] Improve multi-page app structure
-  https://dash.plotly.com/urls
-- [x] Add selection of year(s)
-- [ ] Improve style of checkbox (+label)
-- [ ] Hide/show advanced details
-- [ ] Show speciaal / bijzonder tarief
-- [ ] Show tax brackets and rules
-- [ ] Kolom per jaar en kolom per maand
-
-
-
-
-
-
+* Inkomsten uit voordelen via een aanmerkelijk belang
+* Inkomsten uit sparen en beleggen
 
 ## Hoe wordt de inkomstenbelasting berekend?
 
-Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.
+Het Nederlandse belastingssysteem werkt aan de hand van schijven. De hoogte van de belasting is afhankelijk van hoeveel je verdient. Niet alleen neemt dit toe naarmate je meer verdient omdat de belasting percentueel is, de percentages nemen ook toe naarmate je meer verdient. Deze vorm van inkomstenbelasting heet 'progressieve inkomstenbelasting'.
 
-<div style="text-align:center">$$I_v - K = I_b$$</div>
+Hoe de schijven precies berekend worden kan je vinden op de website van de belastingdienst. Om het jou makkelijker te maken staat onderaan deze post een app waarmee je gemakkelijk de hoogte van jouw inkomstenbelasting kan bepalen aan de hand van jouw bruto salaris, hieruit volgt jouw netto salaris.
 
-* $$I_v$$ is je verzamelinkomen
+Bron: [Belastingdienst: overzicht tarieven en belastingschijven](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/overzicht_tarieven_en_schijven/)
+
+## Hoe wordt je netto salaris bepaald?
+
+Om je netto inkomsten te bepalen dien je de inkomstenbelasting te verrekenen met de heffingskortingen. Uileg over de heffingskortingen kan je [hier](/posts/2020-12-24_heffingskortingen/) vinden. Jouw netto inkomsten kan je als volgt bepalen
+
+<div style="text-align:center">$$I_n = I_v - B + K$$</div>
+
+* $$I_n$$ is je netto inkomen
+* $$I_v$$ is je verzamelinkomen, ofwel je totale bruto inkomen
 * $$K$$ is de som van alle heffingskortingen
-* $$I_b$$ is jouw belastbare inkomen
 
-* 
-
-Bron: [Belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/totaaloverzicht/overzicht-heffingskortingen-2021)
-
-
+Bron: [Belastingdienst: hoe werken heffingskortingen?](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/heffingskortingen/hoe_werken_heffingskortingen)
 
 ## Speciaal tarief
 
-Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen:
+Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen (onder andere):
 
-* Vakantiegeld
+* Vakantiebijslag
 * 13$^\text{e}$ maand
 * Bonussen
 
-Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak/altijd hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt alsof je er meer belasting over betaalt is dat de heffingskortinen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.
+Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt dat je er meer belasting over betaalt is dat de heffingskortingen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.
 
-##### Zo bepaal je de heffingskorting
+Het speciale tarief kan op meerdere manieren worden berekend (met hetzelfde resultaat). Hier zal het op een manier worden uitgelegd. Dit rekenvoorbeeld is gebaseerd op het jaar 2021.
 
-bruto maandsalaris = bruto jaar salaris / 108% / 12
+Stel je verdient 54 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 54 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 50 duizend euro (100%).
 
+In 2021 zou je effectief €16062.72 betalen aan belasting bij een salaris van 54 duizend en €14099.64 bij een salaris van 50 duizend. Deze bedragen zijn makkelijk te bepalen met de app hieronder.
 
+Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  In dit geval is het speciale tarief:
 
-
-
-
-
-In de grafiek hieronder zie je het verloop van het speciale tarief voor een gegeven salaris.
-
-
+<div style="text-align:center">$$\frac{(16062.72 - 14099.64)}{4000} * 100\% = 49,1\%$$<\div>
 
 
 
