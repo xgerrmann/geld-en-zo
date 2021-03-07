@@ -32,7 +32,7 @@ def income_taxes_app(pathname):
         html.Div(
             [html.H1('Bereken eigen situatie'),
              html.Div(children=[
-                 html.Label(children=['Bruto inkomen'], className='input_label'),
+                 html.Label(children=['Bruto jaarinkomen'], className='input_label'),
                  dcc.Input(id="income_taxes_salary_input",
                            type="number",
                            value=default_salary,
@@ -64,12 +64,12 @@ def determine_nett_income(gross_income, selected_year):
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
     work_tax_credit = taxes.calc_work_tax_discount(gross_income)
-    taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
     general_tax_credit = taxes.calc_general_tax_discount(gross_income)
-    taxable_income = max(gross_income - work_tax_credit - general_tax_credit, 0)
     total_tax_credit = work_tax_credit + general_tax_credit
 
-    total_income_tax, income_tax_buckets = taxes.calc_income_tax(taxable_income)
+    subtotal_income_tax, income_tax_buckets = taxes.calc_income_tax(gross_income)
+
+    total_income_tax = taxes.calc_total_income_tax(gross_income)
 
     nett_income = gross_income - total_income_tax
 
@@ -79,37 +79,41 @@ def determine_nett_income(gross_income, selected_year):
         html.Table(
             [
                 html.Tbody([
-                    html.Tr(children=[html.Td('Arbeidskorting'),
-                                      html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
-                                      html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
-                    html.Tr(children=[html.Td('Totaal heffingskortingen'),
-                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td(),
-                                      html.Td(' ', className="align_right")]),
-                    html.Tr(children=[html.Td('Inkomsten uit loon'),
-                                      html.Td(f'{gross_income:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
-                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
-                    html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
-                                      html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")]),
-                    html.Tr(children=[html.Td(),
-                                      html.Td(' ', className="align_right")]),
                     *[
                         html.Tr(children=[html.Td(f'Belasting schijf {ii + 1} ({income_tax_rates[ii]}%) '),
                                           html.Td(f'{income_tax_bucket:.2f} €', className="align_right")], className=f"{'border_bottom' if ii +1 == len(income_tax_buckets) else ''}")
                         for ii, income_tax_bucket in enumerate(income_tax_buckets)],
-                    html.Tr(children=[html.Td('Totale inkomstenbelasting'),
+                    html.Tr(children=[html.Td('Inkomstenbelasting'),
+                                      html.Td(f'{subtotal_income_tax:.2f} €', className="align_right bottom_row")]),
+                  html.Tr(children=[html.Td(),
+                                    html.Td(' ', className="align_right")]),
+                  html.Tr(children=[html.Td('Arbeidskorting'),
+                                    html.Td(f'{work_tax_credit:.2f} €', className="align_right")]),
+                  html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
+                                    html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
+                  html.Tr(children=[html.Td('Totaal heffingskortingen'),
+                                    html.Td(f'{total_tax_credit:.2f} €', className="align_right bottom_row")]),
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td('Inkomstenbelasting'),
+                                      html.Td(f'{subtotal_income_tax:.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
+                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
+                    html.Tr(children=[html.Td('Effectieve inkomstenbelasting'),
                                       html.Td(f'{total_income_tax:.2f} €', className="align_right bottom_row")]),
                     html.Tr(children=[html.Td(),
                                       html.Td(' ', className="align_right")]),
                     html.Tr(children=[html.Td('Bruto inkomen'),
                                       html.Td(f'{gross_income:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td('Totale inkomstenbelasting'),
+                    html.Tr(children=[html.Td('Effectieve inkomstenbelasting'),
                                       html.Td(f'{- total_income_tax:.2f} €', className="align_right")],
                             className="border_bottom"),
-                    html.Tr(children=[html.Td('Netto salaris'),
+                    html.Tr(children=[html.Td('Netto jaarsalaris'),
                                       html.Td(f'{nett_income:.2f} €', className="align_right bottom_row")]),
+                  # html.Tr(children=[html.Td(),
+                  #                   html.Td(' ', className="align_right")]),
+                  # html.Tr(children=[html.Td('Netto maandsalaris'),
+                  #                   html.Td(f'{(nett_income/1.08/12):.2f} €', className="align_right")]),
                 ])
             ]
         )
