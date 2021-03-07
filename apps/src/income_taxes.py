@@ -27,6 +27,7 @@ def income_taxes_app(pathname):
               id='income_taxes_year_selection',
               options=[{'label': year, 'value': year} for year in available_years],
               value=selected_year,
+              clearable=False
             )], className="input_div"
           ),
           html.Br(),
