@@ -12,15 +12,15 @@ Let op, minder belasting! Wil jij weten hoe korting op je belasting werkt, of op
 
 ## Hoe werken heffingskortingen?
 
-Heffingskortingen zijn kortingen op belasting. De heffingskortingen worden van jouw verzamelinkomen afgetrokken om zo tot je belastbare inkomen te komen.
+Heffingskortingen zijn kortingen op de belasting. De heffingskortingen worden van de inkomstenbelasting afgetrokken om zo tot je effectieve belasting te komen.
 
-<div style="text-align:center">$$I_v - K = I_b$$</div>
+<div style="text-align:center">$$B_i - K = B_e$$</div>
 
-* $$I_v$$ is je verzamelinkomen
+* $$B_i$$ is de hoogte van de inkomstenbelasting
 * $$K$$ is de som van alle heffingskortingen
-* $$I_b$$ is jouw belastbare inkomen
+* $$B_e$$ is de effectiefe belasting die je betaalt over je bruto inkomen
 
-Het verschil tussen jouw belastbare- en verzamelinkomen is onbelast, waardoor je door de heffingskortingen minder belasting betaalt en dus meer geld overhoudt.
+De hoogte van de heffingskorting geeft direct aan hoeveel minder inkomstenbelasting je hoeft te betalen.
 
 ## Welke heffingskortingen zijn er?
 
