@@ -43,7 +43,7 @@ td:first-child {
 }
 
 input{
-    width: 60%;
+    width: 40%;
     text-align: center;
     font-size: large;
     float:right;
@@ -53,8 +53,28 @@ input{
 .input_label{
     font-size: large;
     font-weight:bold;
-    width: 40%;
+    width: 60%;
+    float: left
 }
+
+#income_tax_period_toggle{
+    width: 20%;
+}
+
+#output_income_tax_period_toggle{
+    text-align: right;
+    float: right;
+    width: 20%
+}
+
+.float_left{
+    float: left;
+}
+
+.float_right{
+    float: right;
+}
+
 
 #input_form{
     margin: 0 auto;

@@ -2,6 +2,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
 from dash.dependencies import Input, Output
+import dash_daq as daq
 from pfinsim.taxes import Taxes
 from plotly.subplots import make_subplots
 
@@ -40,10 +41,27 @@ def income_taxes_app(pathname):
                            max=10000000,
                            placeholder=default_salary)
              ], className="input_div"),
-             html.Div(id='output_income_taxes_app')],
+             html.Br(),
+             html.Div(children=[
+               html.Label(children=['Periode berekening'], className='input_label'),
+               daq.ToggleSwitch(
+                 id='income_tax_period_toggle',
+                 value=False,
+                 size = 40,
+                 className='float_left'
+               ),
+               html.Div(id='output_income_tax_period_toggle', className='float_right'),
+             ], className="input_div"),
+             html.Div(id='output_income_taxes_app', className='input_div')],
             id="input_form"
         ),
     ])
+
+@app.callback(Output(component_id='output_income_tax_period_toggle', component_property='children'),
+              Input(component_id='income_tax_period_toggle', component_property='value'))
+def update_income_tax_plot(selected_period):
+    return 'Jaarlijks' if not selected_period else 'Maandelijks'
+
 
 @app.callback(Output(component_id='income_tax_plot_div', component_property='children'),
               [Input(component_id='include_tax_credit_checkbox', component_property='value'),
