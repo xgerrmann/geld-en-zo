@@ -74,7 +74,7 @@ def plot_tax_credits(taxes, selected_year):
       'linecolor': '#BCCCDC',
       'showgrid': False,
       'fixedrange': True,
-      'range': [0, 6500]
+      'range': [0, 7000]
     },
     font=dict(
       size=16,
@@ -103,7 +103,7 @@ def tax_credit_app(pathname):
         html.Div(
             [html.H1('Bereken eigen situatie'),
              html.Div([
-                 html.Label(children=['Bruto inkomen'], className='input_label'),
+                 html.Label(children=['Bruto jaarinkomen'], className='input_label'),
                  dcc.Input(id="salary_input",
                            type="number",
                            value=default_salary,
@@ -140,7 +140,6 @@ def determine_taxable_income(salary, selected_year):
 
     work_tax_credit = taxes.calc_work_tax_discount(input_salary)
     general_tax_credit = taxes.calc_general_tax_discount(input_salary)
-    taxable_income = max(input_salary - work_tax_credit - general_tax_credit, 0)
     total_tax_credit = work_tax_credit + general_tax_credit
 
     return (
@@ -152,15 +151,7 @@ def determine_taxable_income(salary, selected_year):
                     html.Tr(children=[html.Td('Algemene heffingskorting', className='border_bottom'),
                                       html.Td(f'{general_tax_credit:.2f} €', className="align_right border_bottom")]),
                     html.Tr(children=[html.Td('Totaal heffingskortingen'),
-                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td(),
-                                      html.Td(' ', className="align_right")]),
-                    html.Tr(children=[html.Td('Inkomsten uit loon'),
-                                      html.Td(f'{input_salary:.2f} €', className="align_right")]),
-                    html.Tr(children=[html.Td('Totaal heffingskortingen', className='border_bottom'),
-                                      html.Td(f'- {total_tax_credit:.2f} €', className="align_right border_bottom")]),
-                    html.Tr(children=[html.Td('Totaal belastbaar inkomen'),
-                                      html.Td(f'{taxable_income:.2f} €', className="align_right bottom_row")])
+                                      html.Td(f'{total_tax_credit:.2f} €', className="align_right bottom_row")]),
                 ])
             ]
         )
