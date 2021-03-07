@@ -16,6 +16,10 @@ th{
     font-weight:bold
 }
 
+.fullWidth{
+    width: 100%;
+}
+
 table{
     width: 100%;
     margin-top: 2em;
@@ -25,6 +29,11 @@ table{
 .bottom_row{
     font-size: large;
     font-weight: bold;
+}
+
+.footnote{
+    width: 100%;
+    font-size: small;
 }
 
 td{

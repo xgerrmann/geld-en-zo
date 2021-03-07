@@ -4,11 +4,14 @@ import plotly.graph_objects as go
 from dash.dependencies import Input, Output
 import dash_daq as daq
 from pfinsim.taxes import Taxes
+from pfinsim.common import Period
 from plotly.subplots import make_subplots
 
 import pfinsim
 from common import app, default_salary
 
+def period_toggle_to_period(toggle_value: bool) -> Period:
+  return Period.YEAR if not toggle_value else Period.MONTH
 
 def income_taxes_app(pathname):
     available_years = list(pfinsim.common.load_settings()['taxes'].keys())
@@ -59,8 +62,9 @@ def income_taxes_app(pathname):
 
 @app.callback(Output(component_id='output_income_tax_period_toggle', component_property='children'),
               Input(component_id='income_tax_period_toggle', component_property='value'))
-def update_income_tax_plot(selected_period):
-    return 'Jaarlijks' if not selected_period else 'Maandelijks'
+def update_income_tax_plot(toggle_value):
+    period = period_toggle_to_period(toggle_value)
+    return 'Jaarlijks' if period == Period.YEAR else 'Maandelijks'
 
 
 @app.callback(Output(component_id='income_tax_plot_div', component_property='children'),
@@ -76,9 +80,14 @@ def update_income_tax_plot(include_tax_credit, selected_year):
 @app.callback(
     Output(component_id='output_income_taxes_app', component_property='children'),
     [Input(component_id='income_taxes_salary_input', component_property='value'),
-     Input(component_id='income_taxes_year_selection', component_property='value')])
-def determine_nett_income(gross_income, selected_year):
+     Input(component_id='income_taxes_year_selection', component_property='value'),
+     Input(component_id='income_tax_period_toggle', component_property='value')])
+def determine_nett_income(gross_income, selected_year, toggle_value):
     gross_income = gross_income or 0
+    selected_period = period_toggle_to_period(toggle_value)
+    if selected_period == Period.MONTH:
+        gross_income = gross_income / 1.08
+
     taxes = Taxes(pfinsim.common.load_settings()['taxes'][selected_year])
 
     work_tax_credit = taxes.calc_work_tax_discount(gross_income)
@@ -93,7 +102,15 @@ def determine_nett_income(gross_income, selected_year):
 
     tax_settings = pfinsim.common.load_settings()['taxes'][selected_year]
     income_tax_rates = [rate*100 for rate in tax_settings['income_tax']['rates']]
+
+    if selected_period == Period.MONTH:
+      total_income_tax_yearly = taxes.calc_total_income_tax(gross_income*1.08)
+      total_income_tax_monthly = taxes.calc_total_income_tax(gross_income)
+      gross_income_difference = 0.08 * gross_income
+      special_tarif = (total_income_tax_yearly - total_income_tax_monthly) / gross_income_difference
+
     return (
+        html.Div(children=[
         html.Table(
             [
                 html.Tbody([
@@ -126,15 +143,24 @@ def determine_nett_income(gross_income, selected_year):
                     html.Tr(children=[html.Td('Effectieve inkomstenbelasting'),
                                       html.Td(f'{- total_income_tax:.2f} €', className="align_right")],
                             className="border_bottom"),
-                    html.Tr(children=[html.Td('Netto jaarsalaris'),
+                    html.Tr(children=[html.Td(f'Netto jaarsalaris'),
                                       html.Td(f'{nett_income:.2f} €', className="align_right bottom_row")]),
-                  # html.Tr(children=[html.Td(),
-                  #                   html.Td(' ', className="align_right")]),
-                  # html.Tr(children=[html.Td('Netto maandsalaris'),
-                  #                   html.Td(f'{(nett_income/1.08/12):.2f} €', className="align_right")]),
+                    html.Tr(children=[html.Td(),
+                                    html.Td(' ', className="align_right")]),
+                    html.Tr(children=[html.Td(children=['Netto maandsalaris',html.Sup(children=["*"])]),
+                                    html.Td(f'{(nett_income/12):.2f} €', className="align_right bottom_row")]),
+                    html.Tr(children=[html.Td('Speciaal tarief'),
+                                      html.Td(f'{special_tarif:.4f}%', className="align_right")]) if selected_period == Period.MONTH else None,
+                    html.Tr(children=[html.Td(),
+                                      html.Td(' ', className="align_right")]),
                 ])
             ]
-        )
+        ),
+        html.Div(children=[html.Sup('*'),'Gemiddeld, inclusief vakantiebijslag'],
+                 className='footnote') if selected_period == Period.YEAR else
+        html.Div(children=[html.Sup('*'), 'Exclusief vakantiebijslag'],
+                 className='footnote')
+        ], className='fullWidth')
     )
 
 def plot_income_taxes(taxes, selected_year, include_tax_credits=True):
