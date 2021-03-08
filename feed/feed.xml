@@ -17,7 +17,7 @@
 		<link href="https://xgerrmann.github.io/posts/2021-01-10_inkomstenbelasting/"/>
 		<updated>2021-03-07T00:00:00+00:00</updated>
 		<id>https://xgerrmann.github.io/posts/2021-01-10_inkomstenbelasting/</id>
-		<content type="html">&lt;p&gt;Wil jij inzicht in hoeveel belasting jij betaalt, hoe je je netto salaris aan de hand van je bruto salaris berekent, hoe vakantiebijslag en andere overige inkomsten worden belast of heb je andere vragen over inkomsten belasting? In deze post wordt dit allemaal behandeld. Ook vindt je aan het einde van deze post een [&lt;strong&gt;handige tool&lt;/strong&gt;](#bruto-netto tool)  waarmee je gemakkelijk een aantal van deze zaken kan berekenen waaronder je netto salaris.&lt;/p&gt;
+		<content type="html">&lt;p&gt;In deze post vindt je een &lt;a href=&quot;#bruto-netto-tool&quot;&gt;&lt;strong&gt;handige tool&lt;/strong&gt;&lt;/a&gt; waarmee je eenvoudig je netto maandsalaris kan berekenen aan de hand van je bruto jaarsalaris. Daarnaast wordt er op een duidelijke manier in een grafiek weergegeven hoeveel belasting je moet betalen voor een toenemend salaris.  &lt;a href=&quot;#bruto-netto-tool&quot;&gt;&lt;strong&gt;De tool&lt;/strong&gt;&lt;/a&gt; vindt je onderaan deze post. Naast deze tool wordt er uitgelegd hoe je netto salaris tot stand komt en hoe het speciale tarief werkt en wat dat is (dit is de belasting op vakantiebijslag en overige extra inkomsten).&lt;/p&gt;
 &lt;h2 id=&quot;inkomstenbelasting-in-nederland&quot;&gt;Inkomstenbelasting in Nederland &lt;a class=&quot;direct-link&quot; href=&quot;#inkomstenbelasting-in-nederland&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Inkomstenbelastingen in Nederland vallen in drie categorieën:&lt;/p&gt;
 &lt;ul&gt;
@@ -25,26 +25,13 @@
 &lt;li&gt;box 2: belastbaar inkomen uit aanmerkelijk belang&lt;/li&gt;
 &lt;li&gt;box 3: belastbaar inkoment uit sparen en beleggen&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In deze post richten we ons op box 1. Verder gaan we er in deze post van uit dat je de pensioenleeftijd nog niet hebt behaald.&lt;/p&gt;
-&lt;p&gt;De volgende inkomsten vallen in box 1:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;winst uit onderneming&lt;/li&gt;
-&lt;li&gt;loon, uitkering of pensioen&lt;/li&gt;
-&lt;li&gt;fooien en andere inkomsten&lt;/li&gt;
-&lt;li&gt;buitenlandse inkomsten&lt;/li&gt;
-&lt;li&gt;inkomsten als freelancer, gastouder, artiest of beroepssporter&lt;/li&gt;
-&lt;li&gt;periodieke uitkeringen (zoals uitkeringen van een lijfrente of alimentatiebetalingen)&lt;/li&gt;
-&lt;li&gt;negatieve persoonsgebonden aftrek&lt;/li&gt;
-&lt;li&gt;terugontvangen premies voor lijfrenten en dergelijke&lt;/li&gt;
-&lt;li&gt;eigenwoningforfait&lt;/li&gt;
-&lt;li&gt;kapitaalverzekeringen eigen woning&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Bron: &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/&quot;&gt;Belastingdienst: belastbaar inkomen uit werk en woning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In deze post richten we ons op box 1. In box 1 vallen inkomsten zoals een salaris, uitkering en het eigen woning forfait. Voor een volledig overzicht van welke inkomsten onder box 1 vallen verwijs ik je naar de &lt;a href=&quot;https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/&quot;&gt;website van de belastingdienst&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Inkomsten die &lt;strong&gt;niet&lt;/strong&gt; in box 1 vallen zijn onder andere&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Inkomsten uit voordelen via een aanmerkelijk belang&lt;/li&gt;
 &lt;li&gt;Inkomsten uit sparen en beleggen&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;In deze post gaan we er van uit dat je de pensioenleeftijd nog niet hebt behaald.&lt;/p&gt;
 &lt;h2 id=&quot;hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;Hoe wordt de inkomstenbelasting berekend? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-wordt-de-inkomstenbelasting-berekend%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Het Nederlandse belastingssysteem werkt aan de hand van schijven. De hoogte van de belasting is afhankelijk van hoeveel je verdient. Niet alleen neemt dit toe naarmate je meer verdient omdat de belasting percentueel is, de percentages nemen ook toe naarmate je meer verdient. Deze vorm van inkomstenbelasting heet &#39;progressieve inkomstenbelasting&#39;.&lt;/p&gt;
 &lt;p&gt;Hoe de schijven precies berekend worden kan je vinden op de website van de belastingdienst. Om het jou makkelijker te maken staat onderaan deze post een app waarmee je gemakkelijk de hoogte van jouw inkomstenbelasting kan bepalen aan de hand van jouw bruto salaris, hieruit volgt jouw netto salaris.&lt;/p&gt;
@@ -62,17 +49,17 @@
 &lt;p&gt;Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen (onder andere):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Vakantiebijslag&lt;/li&gt;
-&lt;li&gt;13$^\text{e}$ maand&lt;/li&gt;
+&lt;li&gt;13&lt;sup&gt;e&lt;/sup&gt; maand&lt;/li&gt;
 &lt;li&gt;Bonussen&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt dat je er meer belasting over betaalt is dat de heffingskortingen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.&lt;/p&gt;
 &lt;p&gt;Het speciale tarief kan op meerdere manieren worden berekend (met hetzelfde resultaat). Hier zal het op een manier worden uitgelegd. Dit rekenvoorbeeld is gebaseerd op het jaar 2021.&lt;/p&gt;
-&lt;p&gt;Stel je verdient 54 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 54 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 50 duizend euro (100%).&lt;/p&gt;
-&lt;p&gt;In 2021 zou je effectief €16062.72 betalen aan belasting bij een salaris van 54 duizend en €14099.64 bij een salaris van 50 duizend. Deze bedragen zijn makkelijk te bepalen met de app hieronder.&lt;/p&gt;
-&lt;p&gt;Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  In dit geval is het speciale tarief:&lt;/p&gt;
-&lt;div style=&quot;text-align:center&quot;&gt;$$\frac{(16062.72 - 14099.64)}{4000} * 100\% = 49,1\%$$&lt;\div&gt;
-&lt;h2 id=&quot;bruto-netto-tool&quot;&gt;Bruto-netto tool &lt;a class=&quot;direct-link&quot; href=&quot;#bruto-netto-tool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;1400pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;&lt;/\div&gt;&lt;/div&gt;</content>
+&lt;p&gt;Stel je verdient 27 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 27 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 25 duizend euro (100%).&lt;/p&gt;
+&lt;p&gt;In 2021 zou je effectief €3561.51 betalen aan belasting bij een salaris van 27 duizend en €2753.23 bij een salaris van 25 duizend. Deze bedragen zijn makkelijk te bepalen met behulp van de app hieronder.&lt;/p&gt;
+&lt;p&gt;Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  Het speciale tarief is de effectieve belasting bij 27 duizend euro min de effectieve belasting bij 25 duizend euro, het resultaat hiervan moet gedeeld worden door het verschil in inkomsten tussen de 27 duizend en de 25 duizend euro, dit leidt tot een speciaal tarief van 40.41%:&lt;/p&gt;
+&lt;div style=&quot;text-align:center&quot;&gt;$$\frac{(3561.51 - 2753.23)}{2000} * 100\% = 40,41\% $$&lt;/div&gt;
+&lt;h2 id=&quot;bruto-netto-tool&quot;&gt;Bruto-netto-tool &lt;a class=&quot;direct-link&quot; href=&quot;#bruto-netto-tool&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;1600pt&quot; scrolling=&quot;no&quot; src=&quot;https://personal-finance-app-300718.ew.r.appspot.com/income_taxes&quot; style=&quot;border:0px&quot;&gt;&lt;/iframe&gt;</content>
 	</entry>
 	
 	<entry>
