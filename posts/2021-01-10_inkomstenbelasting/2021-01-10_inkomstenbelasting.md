@@ -10,7 +10,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-Wil jij inzicht in hoeveel belasting jij betaalt, hoe je je netto salaris aan de hand van je bruto salaris berekent, hoe vakantiebijslag en andere overige inkomsten worden belast of heb je andere vragen over inkomsten belasting? In deze post wordt dit allemaal behandeld. Ook vindt je aan het einde van deze post een [**handige tool**](#bruto-netto tool)  waarmee je gemakkelijk een aantal van deze zaken kan berekenen waaronder je netto salaris. 
+In deze post vindt je een [**handige tool**](#bruto-netto-tool) waarmee je eenvoudig je netto maandsalaris kan berekenen aan de hand van je bruto jaarsalaris. Daarnaast wordt er op een duidelijke manier in een grafiek weergegeven hoeveel belasting je moet betalen voor een toenemend salaris.  [**De tool**](#bruto-netto-tool) vindt je onderaan deze post. Naast deze tool wordt er uitgelegd hoe je netto salaris tot stand komt en hoe het speciale tarief werkt en wat dat is (dit is de belasting op vakantiebijslag en overige extra inkomsten).
 
 ## Inkomstenbelasting in Nederland
 
@@ -20,27 +20,14 @@ Inkomstenbelastingen in Nederland vallen in drie categorieën:
 * box 2: belastbaar inkomen uit aanmerkelijk belang
 * box 3: belastbaar inkoment uit sparen en beleggen
 
-In deze post richten we ons op box 1. Verder gaan we er in deze post van uit dat je de pensioenleeftijd nog niet hebt behaald. 
-
-De volgende inkomsten vallen in box 1:
-
-* winst uit onderneming
-* loon, uitkering of pensioen
-* fooien en andere inkomsten
-* buitenlandse inkomsten
-* inkomsten als freelancer, gastouder, artiest of beroepssporter
-* periodieke uitkeringen (zoals uitkeringen van een lijfrente of alimentatiebetalingen)
-* negatieve persoonsgebonden aftrek
-* terugontvangen premies voor lijfrenten en dergelijke
-* eigenwoningforfait
-* kapitaalverzekeringen eigen woning
-
-Bron: [Belastingdienst: belastbaar inkomen uit werk en woning](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/)
+In deze post richten we ons op box 1. In box 1 vallen inkomsten zoals een salaris, uitkering en het eigen woning forfait. Voor een volledig overzicht van welke inkomsten onder box 1 vallen verwijs ik je naar de [website van de belastingdienst](https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/boxen_en_tarieven/box_1/).
 
 Inkomsten die **niet** in box 1 vallen zijn onder andere
 
 * Inkomsten uit voordelen via een aanmerkelijk belang
 * Inkomsten uit sparen en beleggen
+
+In deze post gaan we er van uit dat je de pensioenleeftijd nog niet hebt behaald. 
 
 ## Hoe wordt de inkomstenbelasting berekend?
 
@@ -67,23 +54,22 @@ Bron: [Belastingdienst: hoe werken heffingskortingen?](https://www.belastingdien
 Het speciaal tarief is een belastingstarief wat wordt geheven over het salaris dat bovenop je maandsalaris komt. Hieronder vallen (onder andere):
 
 * Vakantiebijslag
-* 13$^\text{e}$ maand
+* 13<sup>e</sup> maand
 * Bonussen
 
 Vaak denkt men dat men meer belasting betaalt over de bovenstaande inkomsten, dit tarief is namelijk vaak hoger dan het basis tarief van je belastingschijf. De reden dat het lijkt dat je er meer belasting over betaalt is dat de heffingskortingen reeds zijn meegerekend in dit tarief. Een hoger salaris leidt, naast een hogere belasting, namelijk tot minder heffingskortingen.
 
 Het speciale tarief kan op meerdere manieren worden berekend (met hetzelfde resultaat). Hier zal het op een manier worden uitgelegd. Dit rekenvoorbeeld is gebaseerd op het jaar 2021.
 
-Stel je verdient 54 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 54 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 50 duizend euro (100%).
+Stel je verdient 27 duizend bruto per jaar, inclusief vakantietoeslag. De vakantietoeslag is wettelijk vastgesteld op 8% van je bruto inkomen, dus 27 duizend komt overeen met 108%. Jouw inkomsten zonder vakantietoeslag zijn 25 duizend euro (100%).
 
-In 2021 zou je effectief €16062.72 betalen aan belasting bij een salaris van 54 duizend en €14099.64 bij een salaris van 50 duizend. Deze bedragen zijn makkelijk te bepalen met de app hieronder.
+In 2021 zou je effectief €3561.51 betalen aan belasting bij een salaris van 27 duizend en €2753.23 bij een salaris van 25 duizend. Deze bedragen zijn makkelijk te bepalen met behulp van de app hieronder.
 
-Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  In dit geval is het speciale tarief:
+Door het verschil in belasting te delen door het verschil in inkomsten kan je het speciale tarief bepalen wat voor jou geldt.  Het speciale tarief is de effectieve belasting bij 27 duizend euro min de effectieve belasting bij 25 duizend euro, het resultaat hiervan moet gedeeld worden door het verschil in inkomsten tussen de 27 duizend en de 25 duizend euro, dit leidt tot een speciaal tarief van 40.41%:
 
-<div style="text-align:center">$$\frac{(16062.72 - 14099.64)}{4000} * 100\% = 49,1\%$$<\div>
+<div style="text-align:center">$$\frac{(3561.51 - 2753.23)}{2000} * 100\% = 40,41\% $$</div>
 
 
+## Bruto-netto-tool
 
-## Bruto-netto tool
-
-<iframe width="100%" height='1400pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
+<iframe width="100%" height='1600pt' scrolling='no' src='https://personal-finance-app-300718.ew.r.appspot.com/income_taxes' style="border:0px"></iframe>
