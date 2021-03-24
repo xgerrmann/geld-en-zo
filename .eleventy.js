@@ -46,7 +46,20 @@ module.exports = function(eleventyConfig) {
   
       return katex.renderToString(cleanEquation, { throwOnError: false })
     })
-  })
+  });
+
+  eleventyConfig.addFilter('footnote', content => {
+    return content.replace(/\[\^(.+?)]/g, (_, footnote) => {
+      return `<sup><a class='footnote' href=#${footnote}>${footnote}</a></sup>`
+    })
+  });
+
+  eleventyConfig.addFilter('footnote_target', content => {
+     return content.replace(/\[\^(.+?)]:(.*)\n/g, (_, id, text) => {
+        console.log(_, id, text)
+        return `<span id=${id} class='footnote-target'><sup class='footnote'>${id}</sup> ${text}</span>`
+      })
+  });
 
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();

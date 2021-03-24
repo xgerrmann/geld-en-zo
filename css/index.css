@@ -228,3 +228,21 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link:visited {
   color: #aaa;
 }
+
+.footnote{
+  color: #505050;
+  font-size: small;
+  text-decoration:none;
+  background-color: WhiteSmoke;
+  border-radius: 30%;
+  padding:2pt;
+}
+
+a.footnote:visited {
+  color: #505050;
+}
+
+.footnote-target{
+  color: #505050;
+  font-size: small;
+}
