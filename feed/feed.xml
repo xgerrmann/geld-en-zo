@@ -5,12 +5,209 @@
 	
 	<link href="https://xgerrmann.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://xgerrmann.github.io/geld-en-zo/"/>
-	<updated>2021-03-07T00:00:00+00:00</updated>
+	<updated>2021-03-25T00:00:00+00:00</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Xander Gerrmann</name>
 		<email>xander@xgerrmann.com</email>
 	</author>
+	
+	<entry>
+		<title>BTC futures</title>
+		<link href="https://xgerrmann.github.io/posts/2021-03-25_btc_futures/2021-03-07_btc_futures/"/>
+		<updated>2021-03-25T00:00:00+00:00</updated>
+		<id>https://xgerrmann.github.io/posts/2021-03-25_btc_futures/2021-03-07_btc_futures/</id>
+		<content type="html">&lt;p&gt;De rentes op de bank zijn al tijden behoorlijk laag, de rendementen op obligaties zijn eveneens laag en de rendementen op de aandelenmarkt zijn aantrekkelijk maar kunnen erg volatiel zijn. Waar kan je nog tegen een relatief laag risico[^0] een degelijk rendement halen?  $$\rightarrow$$ Bitcoin futures&lt;/p&gt;
+&lt;p&gt;In deze post zal ik het volgende bespreken:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Welke rendementen kan je verwachten?&lt;/li&gt;
+&lt;li&gt;Wat zijn bitcoin futures?&lt;/li&gt;
+&lt;li&gt;Wat je moet doen en een echt voorbeeld daarvan;&lt;/li&gt;
+&lt;li&gt;Een technische uitleg voor de geinteresseerde lezer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[^0]: Met een laag risico wordt hier een lage volatiliteit bedoeld&lt;/p&gt;
+&lt;h2 id=&quot;welke-rendement-kan-je-verwachten&quot;&gt;Welke rendement kan je verwachten &lt;a class=&quot;direct-link&quot; href=&quot;#welke-rendement-kan-je-verwachten&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ten tijde van schrijven (24 maart) is het rendement wat je kan behalen 23.8% op jaarbasis. Dit rendement valt te behalen tot en met 24 september, wat precies een half jaar verder is waardoor je ook &amp;quot;maar&amp;quot; de helft aan rendement ontvangt, dus: 11.9% in een half jaar. Als je deze strategie doorzet en het effect van rente op rente meerekent, dan is het jaarlijkse rendement zelfs 25.2%.&lt;/p&gt;
+&lt;p&gt;Bij deze rendementen horen ook kosten die het effectieve rendement verlagen. Deze kosten nemen af met de grootte van de investering. Bij 1000€ zijn de kosten ongeveer 7%, bij 10.000€ ongeveer 1.6%. Deze kosten bestaan uit transactiekosten, handelskosten en verliezen die gemaakt worden op de spread[^1].&lt;/p&gt;
+&lt;p&gt;Naast de rendementen is het belangrijk om stil te staan bij de risicos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;De dollar daalt in waarde ten opzichte van de euro (&lt;a href=&quot;https://www.tradingview.com/symbols/EURUSD/&quot;&gt;klik hier voor de actuele koers&lt;/a&gt;). Gedurende de tijd dat je de bitcoin bezit ben je blootgesteld aan de dollar, als deze in waarde daalt, daalt ook je totale investering in waarde.&lt;/li&gt;
+&lt;li&gt;De beurs waarop je handelt gaat failliet, hierdoor kan het mogelijk zijn dat je niet meer bij je investering kan en dat je het niet meer terug krijgt.&lt;/li&gt;
+&lt;li&gt;Hevige prijsfluctuaties in de bitcoin en/of de future kunnen resulteren in een tijdelijke imbalans die zo groot is dat je wordt geliquideerd (je positie of een gedeelte daarvan wordt automatisch gesloten).&lt;/li&gt;
+&lt;li&gt;De transactiekosten van de bitcoin kunnen stijgen waardoor je al je winst (of meer) kwijt bent aan het terughalen van je investering.&lt;/li&gt;
+&lt;li&gt;Iemand krijgt toegang tot jouw account en steelt je bitcoins. Het is belangrijk om je accounts goed te beveiligen (2FA), om dit risico te beperken.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[^1]: De spread is het verschil tussen de koop en verkoopprijs van een product&lt;/p&gt;
+&lt;h2 id=&quot;wat-zijn-bitcoin-futures%3F&quot;&gt;Wat zijn bitcoin futures? &lt;a class=&quot;direct-link&quot; href=&quot;#wat-zijn-bitcoin-futures%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Een bitcoin future is een contract waarbij je met de tegenpartij afspreekt in de toekomst voor een bepaalde waarde aan bitcoins aan te schaffen. Deze waarde is uitgedrukt in dollars, maar dit is afhankelijk van de beurs waar je op handelt. Wanneer de einddatum verstrijkt, wordt de transactie automatisch uitgevoerd.&lt;/p&gt;
+&lt;p&gt;Voorbeeld:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;De einddatum van de future is 24 september 2021&lt;/li&gt;
+&lt;li&gt;De future handelt tegen een prijs van 60.000&lt;/li&gt;
+&lt;li&gt;Je koopt voor 20.000 dollar aan futures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Je koopt praktisch voor 20.000€ aan bitcoin tegen een prijs van 60.000 dollar op 24 september 2021. Dit komt neer op $$\frac{1}{3}$$&lt;sup&gt;e&lt;/sup&gt; bitcoin.&lt;/p&gt;
+&lt;p&gt;Door de koop ga je een verplichting aan. Om te zorgen dat je deze verplichting na kan komen houdt de beurs continu in de gaten of je genoeg geld (bitcoin) op je rekening hebt zodat wanneer de tijd daar is, de koop daadwerkelijk uitgevoerd kan worden.&lt;/p&gt;
+&lt;h2 id=&quot;wat-moet-je-precies-doen%3F&quot;&gt;Wat moet je precies doen? &lt;a class=&quot;direct-link&quot; href=&quot;#wat-moet-je-precies-doen%3F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Voordat je aan de gang gaat is het verstandig om deze paragraaf helemaal te lezen. Aan het einde worden een aantal zaken genoemd waar je rekening mee moet houden.&lt;/p&gt;
+&lt;p&gt;Er zijn twee scenarios die mogelijk voor jou gelden:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Je hebt geen bitcoin&lt;/li&gt;
+&lt;li&gt;Je hebt al bitcoins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Als je al bitcoin hebt kan je stap 1 overslaan. In beide gevallen heb je de keuze om stap 4 wel of niet uit te voeren.&lt;/p&gt;
+&lt;p&gt;Het volgende stappenplan geldt alleen vanwege de positieve rentes op de futures.&lt;/p&gt;
+&lt;h5 id=&quot;stappenplan&quot;&gt;Stappenplan &lt;a class=&quot;direct-link&quot; href=&quot;#stappenplan&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;Je koopt bitcoins;&lt;/li&gt;
+&lt;li&gt;Je verkoopt futures ter waarde van de huidige waarde van je bitcoins;&lt;/li&gt;
+&lt;li&gt;In de periode vlak voor de einddatum (en tijd) koop je al je futures terug;&lt;/li&gt;
+&lt;li&gt;Je verkoopt de bitcoin voor dollars;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In de volgende paragraaf zal een echt voorbeeld worden behandeld.&lt;/p&gt;
+&lt;h5 id=&quot;let-op&quot;&gt;Let op &lt;a class=&quot;direct-link&quot; href=&quot;#let-op&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Als je al bitcoin hebt en je verkoopt een future profiteer je niet meer in de steiging van de waarde van de bitcoin. Wel profiteer je van de rente van de future.&lt;/li&gt;
+&lt;li&gt;De uitvoering van stap 3 kan op meerdere manieren, deze manier is het eenvoudigst.&lt;/li&gt;
+&lt;li&gt;Het is &lt;strong&gt;zeer belangrijk&lt;/strong&gt; om de stappen 1 en 2 zo dicht mogelijk op elkaar te laten volgen. Hetzelfde geldt voor stappen 3 en 4.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;voorbeeld-situatie&quot;&gt;Voorbeeld situatie &lt;a class=&quot;direct-link&quot; href=&quot;#voorbeeld-situatie&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Om het bovenstaande stappenplan begrijpelijker te maken zal ik mijn eigen situatie met je delen.&lt;/p&gt;
+&lt;p&gt;Ik had zelf al bitcoin, maar laat die buiten beschouwing. Ik loop zelf daarom alle stappen (1 t/m 4) door. Aangezien de einddatum van de future in de toekomst ligt heb ik stappen 3 en 4 nog niet uitgevoerd.&lt;/p&gt;
+&lt;h5 id=&quot;voorbereiding&quot;&gt;Voorbereiding &lt;a class=&quot;direct-link&quot; href=&quot;#voorbereiding&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;Ik heb van tevoren uitgezocht waar ik het voordeligst bitcoin kan kopen met euros en vervolgens tegen de laagst mogelijke kosten kan overmaken naar mijn crypto beurs &lt;a href=&quot;https://xgerrmann.github.io/posts/2021-03-25_btc_futures/2021-03-07_btc_futures/Deribit.com&quot;&gt;Deribit&lt;/a&gt;. Ik kwam uit op &lt;a href=&quot;https://xgerrmann.github.io/posts/2021-03-25_btc_futures/2021-03-07_btc_futures/bitvavo.com&quot;&gt;Bitvavo&lt;/a&gt; omdat deze hele lage transactiekosten heeft en ik direct met de euro een bitcoin kon kopen, echter zou ik deze niet nog een keer kiezen omdat de prijzen te veel afweken van de gemiddelde bitcoin prijs.&lt;/p&gt;
+&lt;p&gt;Vervolgens heb ik gekeken welke acties ik wil uitvoeren zodat ik alles zo snel mogelijk achter elkaar kan uitvoeren. Hier heb ik bepaalde dat ik de future van 24 september 2021 wil verkopen.&lt;/p&gt;
+&lt;h5 id=&quot;stap-1&quot;&gt;Stap 1 &lt;a class=&quot;direct-link&quot; href=&quot;#stap-1&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;In deze stap heb ik bitcoin gekocht en overgemaakt naar mijn crypto beurs (Deribit). Na alle transactiekosten blijft er 0.3637 BTC over.&lt;/p&gt;
+&lt;h5 id=&quot;stap-2&quot;&gt;Stap 2 &lt;a class=&quot;direct-link&quot; href=&quot;#stap-2&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;Zodra ik de de bitcoin ontvang verkoop ik de future. Deze waarde moet zo dicht mogelijk bij de hoeveelheid bitcoins liggen, maar dit kan lichtelijk afwijken vanwege de minimale contractgrootte van 10 euro.&lt;/p&gt;
+&lt;p&gt;Het verkopen van de future leidde tot meerdere trades, deze kan je zien in de tabel hieronder.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;Grootte [$]&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Prijs [$/B]&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Grootte [B]&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-13.450&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;51.454,00&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0,26140&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-4.690&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;51.466,00&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0,09113&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-150&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;51.472,00&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0,00291&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-480&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;51.472,50&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0,00933&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;Totaal&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-18.770&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;51.457,61&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0,36477&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In de linker kolom zie je de grootte van je contracten en de richting (negatief is verkocht). In de middelste kolom zie voor welke prijs de futures zijn verkocht. In de rechter kolom is bepaald aan de hand van de grootte en de prijs met hoeveel bitcoin dat overeenkomt.&lt;/p&gt;
+&lt;p&gt;Zoals je kunt zien komt de hoeveelheid contracten die ik verkocht heb niet precies overeen met hoeveel bitcoin ik gekocht heb. Het verschil is 0.001 BTC, wat ongeveer overeenkomt met 50 euro. Mocht de bitcoin prijs stijgen naar 100.000 BTC dan maak ik 50 euro verlies door dit verschil, dit is belangrijk om bewust van te zijn.&lt;/p&gt;
+&lt;h5 id=&quot;stap-3-%26-4&quot;&gt;Stap 3 &amp;amp; 4 &lt;a class=&quot;direct-link&quot; href=&quot;#stap-3-%26-4&quot;&gt;#&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;Deze moet ik nog uitvoeren. Hiervoor wacht ik tot de ochtend van, of de dag vóór, de einddatum van de future. Dan koop ik de future terug tegen de marktprijs, maar ik de bitcoin over naar een beurs waar ik de bitcoin kan verkopen voor dollars of euros. Deze maak ik dan over naar mijn eigen bankrekening.&lt;/p&gt;
+&lt;h2 id=&quot;technische-uitleg&quot;&gt;Technische uitleg &lt;a class=&quot;direct-link&quot; href=&quot;#technische-uitleg&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;hoe-bepaal-je-de-huidige-waarde-van-je-positie%3F&quot;&gt;Hoe bepaal je de huidige waarde van je positie? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-bepaal-je-de-huidige-waarde-van-je-positie%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Deze waarde bestaat uit twee delen:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;De waarde van je bitcoin positie&lt;br&gt;
+$$w^B = s^B_B (p_1^B - p_0^B)$$&lt;/li&gt;
+&lt;li&gt;De waarde van je future positie&lt;br&gt;
+$$w^F = (s_{\$}^F/p_0^F - s^F_{\$}/p_1^F) \cdot p_1^B$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Dit voorbeeld is gedeeltelijk gebaseerd op de &lt;a href=&quot;https://www.deribit.com/pages/docs/futures&quot;&gt;officiele documentatie van Deribit&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hier zijn:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$$w^B$$ en $$w^F$$ de waarde van de respectievelijke bitcoin en future positie&lt;/li&gt;
+&lt;li&gt;$$s_B^B$$ de bitcoin positie uitgedrukt in bitcoin&lt;/li&gt;
+&lt;li&gt;$$s_{\$ }$$ de future positie uitgedrukt in dollar&lt;/li&gt;
+&lt;li&gt;$$p_0^B$$ en $$p_1^B$$ de start- en huidige prijs voor de bitcoin&lt;/li&gt;
+&lt;li&gt;$$p_0^F$$ en $$p_1^F$$ de start- en huidige prijs voor de future&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Variabelen die niet meer veranderen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$$s_B^B = 0,36477$$ BTC&lt;/li&gt;
+&lt;li&gt;$$s_{\$}^F = -18770{\$} $$&lt;/li&gt;
+&lt;li&gt;$$p_0^B =  45.680,30{\$} $$&lt;/li&gt;
+&lt;li&gt;$$p_0^F=51.457,61{\$} $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Waarden van de verandererende variabelen op 2021-03-06:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$$p_1^B= 56778.75{\$} $$&lt;/li&gt;
+&lt;li&gt;$$p_1^F= 63490.88{\$} $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Resulterend in de volgende waardes en totale winst:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bitcoin positie&lt;br&gt;
+$$0,36477 \cdot (56778.75-45680.30) = 4048.38{\$} $$&lt;/li&gt;
+&lt;li&gt;Future positie&lt;br&gt;
+$$-18770 \cdot (1/51457.61 - 1/63490.88) \cdot 56778.75 = -3925.30{\$} $$&lt;/li&gt;
+&lt;li&gt;Winst&lt;br&gt;
+$$W = w_B + w_F = 4048.38 - 3925.30 = 123.08 {\$} $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;hoe-bepaal-je-de-verwachte-winst%3F&quot;&gt;Hoe bepaal je de verwachte winst? &lt;a class=&quot;direct-link&quot; href=&quot;#hoe-bepaal-je-de-verwachte-winst%3F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Hier zal ik laten zien hoe je de winst die je kan verwachten uitrekent. Ook wordt hier uitgelegd waarom deze investering ongevoelig is voor schommelingen in de bitcoin prijs.&lt;/p&gt;
+&lt;p&gt;Voor het gemak herhaal ik de waarde van de bitcoin en future positie.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;De waarde van je bitcoin positie&lt;br&gt;
+$$w^B = s^B_B (p_1^B - p_0^B)$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;De waarde van je future positie&lt;br&gt;
+$$w^F = (s_{\$}^F/p_0^F - s^F_{\$}/p_1^F) \cdot p_1^B$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;De winst is de som van de waarde van de bitcoin en de future positie.&lt;br&gt;
+$$W = w^B + w^F$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Door de loop van de tijd convergeerd de future prijs naar de bitcoin prijs waardoor het volgende kan worden aangenomen op het moment van expiratie:&lt;br&gt;
+$$p_1^F = p_1^B = p_1$$&lt;br&gt;
+$$W= s_B^B(p_1-p_0^B) + s_{\$}(1-p_1/p_0^F)$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;De bitcoin waarde van de future is gelijk aan de dollar waarde gedeeld door de bitcoin prijs  $$s_{\$}^F/p_0^F=s_B^F$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Omdat de positie delta neutraal moet zijn, zijn de future en bitcoin posities uitgedrukt in bitcoin gelijk aan elkaar&lt;br&gt;
+$$s_B^B=s_B^F=s_B$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Na herschrijven houdt je een vergelijking over waar de waarde van de bitcoin ($$p_1$$) wegvalt.&lt;br&gt;
+$$W = s_B(p_1-p_1)+s_B^F(p_0^F-p_0^B)$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wat kan worden herschreven als&lt;br&gt;
+$$W = s_{\$}^F-s_Bp_0^B$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Met andere woorden: de winst van de positie is gelijk aan de future positie in dollars min de initiële positie in bitcoin uitgedrukt in dollars aan de hand van de bitcoin prijs in het begin.&lt;/p&gt;
+&lt;p&gt;Verder is er geen afhankelijkheid van de huidige bitcoin prijs ($$p_1$$), dit komt door middel van het innemen van de juiste grootte aan tegengestelde posities.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Inkomstenbelasting</title>
